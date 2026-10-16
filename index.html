@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Divyansh Mishra | GenAI, Agentic AI & Python Backend Engineer</title>
+  
+  <!-- SEO & Social Meta Tags -->
+  <meta name="description" content="Portfolio of Divyansh Mishra - Specialist in Generative AI, Autonomous Multi-Agent Systems, LangGraph, LLM Orchestration, and Scalable Python Async Backends.">
+  <meta name="keywords" content="Divyansh Mishra, GenAI Engineer, Agentic AI, Python Backend, LangChain, LangGraph, FastAPI, LLM Systems, Vector DB, RAG">
+  <meta name="author" content="Divyansh Mishra">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Divyansh Mishra | GenAI & Agentic AI Engineer">
+  <meta property="og:description" content="Building autonomous multi-agent swarms, RAG pipelines, and high-performance Python backends.">
+  <meta property="og:type" content="website">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220%22%200%20100%20100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Glowing Background Elements -->
+  <div class="glow-orb orb-1"></div>
+  <div class="glow-orb orb-2"></div>
+  <div class="glow-orb orb-3"></div>
+  
+  <!-- Neural Network / Particle Canvas -->
+  <canvas id="neural-canvas"></canvas>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" id="brand-logo">
+        <span class="logo-symbol">&lt;/&gt;</span>
+        <span class="logo-text">divyansh<span class="logo-accent">.ai</span></span>
+      </a>
+
+      <nav class="nav-links" id="nav-links">
+        <a href="#about" class="nav-item">About</a>
+        <a href="#architecture" class="nav-item">Agentic Arch</a>
+        <a href="#projects" class="nav-item">Projects</a>
+        <a href="#skills" class="nav-item">Tech Stack</a>
+        <a href="#terminal-playground" class="nav-item">Terminal</a>
+        <a href="#contact" class="nav-item nav-btn">Get In Touch</a>
+      </nav>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main>
+    
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-content">
+        
+        <!-- Left Hero Column: Narrative & CTA -->
+        <div class="hero-text-col">
+          <div class="status-badge">
+            <span class="status-pulse"></span>
+            <span class="status-text">Available for GenAI & Agentic Systems Engineering</span>
+          </div>
+
+          <h1 class="hero-heading">
+            Architecting <span class="text-gradient-cyan">Autonomous Agents</span> & Resilient <span class="text-gradient-purple">Python Backends</span>
+          </h1>
+
+          <p class="hero-subtext">
+            Hi, I'm <strong class="highlight-text">Divyansh Mishra</strong>. I engineer intelligent systems combining non-deterministic LLM reasoning with deterministic, high-concurrency Python architectures, multi-agent state machines, and production RAG pipelines.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>View Projects</span>
+              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#terminal-box" class="btn btn-secondary">
+              <span class="terminal-prompt-char">&gt;_</span>
+              <span>Open Terminal</span>
+            </a>
+            <a href="#contact" class="btn btn-outline">Contact Me</a>
+          </div>
+
+          <!-- Quick Metrics / Key Strengths -->
+          <div class="hero-metrics">
+            <div class="metric-item">
+              <span class="metric-number">LLMs & Agents</span>
+              <span class="metric-label">LangGraph, AutoGen & Swarms</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-number">Production RAG</span>
+              <span class="metric-label">Hybrid Vector Retrieval</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-item">
+              <span class="metric-number">Python Async</span>
+              <span class="metric-label">FastAPI, Celery & Redis</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Hero Column: Interactive Live Terminal Simulator -->
+        <div class="hero-terminal-col" id="terminal-box">
+          <div class="terminal-window">
+            
+            <!-- Terminal Title Bar -->
+            <div class="terminal-header">
+              <div class="terminal-buttons">
+                <span class="t-btn t-btn-red"></span>
+                <span class="t-btn t-btn-yellow"></span>
+                <span class="t-btn t-btn-green"></span>
+              </div>
+              <div class="terminal-title">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8l4 4-4 4M12 16h6"/></svg>
+                <span>divyansh@agent-node: ~ (python 3.12)</span>
+              </div>
+              <div class="terminal-env-badge">ACTIVE</div>
+            </div>
+
+            <!-- Terminal Output Body -->
+            <div class="terminal-body" id="hero-terminal-body">
+              <div class="terminal-output-line">
+                <span class="t-comment"># Initializing Divyansh's Agentic Runtime Environment...</span>
+              </div>
+              <div class="terminal-output-line">
+                <span class="t-green">✔ System ready.</span> Agent swarm supervisor running on <span class="t-cyan">FastAPI:8000</span>.
+              </div>
+              <div class="terminal-output-line">
+                <span class="t-comment"># Type a command or click an action below:</span>
+              </div>
+              <div class="terminal-interactive-history" id="terminal-history"></div>
+              
+              <!-- Input Prompt -->
+              <div class="terminal-input-row">
+                <span class="terminal-prompt">divyansh@agent-node:~$</span>
+                <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="type 'help', 'agents', 'skills'...">
+              </div>
+            </div>
+
+            <!-- Interactive Quick Command Chips -->
+            <div class="terminal-quick-chips">
+              <span class="chip-label">Quick Run:</span>
+              <button class="cmd-chip" data-cmd="whoami">whoami</button>
+              <button class="cmd-chip" data-cmd="agents --status">agents --status</button>
+              <button class="cmd-chip" data-cmd="stack --core">stack</button>
+              <button class="cmd-chip" data-cmd="rag --eval">rag --eval</button>
+              <button class="cmd-chip" data-cmd="clear">clear</button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Architecture & Philosophy Showcase: Agentic Workflow -->
+    <section class="section-container" id="architecture">
+      <div class="section-header">
+        <span class="section-tag">SYSTEM ARCHITECTURE</span>
+        <h2 class="section-title">How I Build <span class="text-gradient-cyan">Agentic AI Workflows</span></h2>
+        <p class="section-desc">
+          Modern GenAI goes far beyond simple chatbot prompts. Here is the architectural mental model I implement for autonomous, self-correcting agent swarms.
+        </p>
+      </div>
+
+      <div class="architecture-flow-grid">
+        <div class="arch-card">
+          <div class="arch-step">01</div>
+          <div class="arch-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v8M8 12h8"/></svg>
+          </div>
+          <h3>Intent & Supervisor Routing</h3>
+          <p>User queries are decomposed into DAG task graphs by a supervisor agent using structured Pydantic schemas and deterministic routing logic.</p>
+          <div class="arch-tags">
+            <span>LangGraph</span>
+            <span>Task Planner</span>
+            <span>Intent Classifier</span>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <div class="connector-line"></div>
+          <span class="connector-dot"></span>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-step">02</div>
+          <div class="arch-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#a855f7" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3>Specialized Tool & Subagent Swarms</h3>
+          <p>Worker agents execute subtasks concurrently—retrieving hybrid dense/sparse vector context, querying SQL databases, and invoking sandbox tools.</p>
+          <div class="arch-tags">
+            <span>AsyncIO</span>
+            <span>Tool Calling</span>
+            <span>Vector DB (Qdrant)</span>
+          </div>
+        </div>
+
+        <div class="arch-connector">
+          <div class="connector-line"></div>
+          <span class="connector-dot"></span>
+        </div>
+
+        <div class="arch-card">
+          <div class="arch-step">03</div>
+          <div class="arch-icon-wrap">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3>Evaluation, Reflection & Guardrails</h3>
+          <p>Outputs are self-critiqued for hallucination and safety before entering the FastAPI streaming pipeline back to the consumer.</p>
+          <div class="arch-tags">
+            <span>Self-Reflection</span>
+            <span>Guardrails</span>
+            <span>FastAPI SSE</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="section-container" id="projects">
+      <div class="section-header">
+        <span class="section-tag">ENGINEERED SOLUTIONS</span>
+        <h2 class="section-title">Featured <span class="text-gradient-purple">GenAI & Backend Projects</span></h2>
+        <p class="section-desc">
+          Real-world applications demonstrating multi-agent coordination, production RAG pipelines, and high-performance Python architectures.
+        </p>
+
+        <!-- Project Filter Buttons -->
+        <div class="project-filters">
+          <button class="filter-btn active" data-filter="all">All Systems</button>
+          <button class="filter-btn" data-filter="agentic">Agentic AI & Swarms</button>
+          <button class="filter-btn" data-filter="rag">GenAI & RAG</button>
+          <button class="filter-btn" data-filter="backend">Python Backend & APIs</button>
+        </div>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" id="projects-grid">
+
+        <!-- Project 1: Multi-Agent Orchestrator -->
+        <article class="project-card" data-category="agentic">
+          <div class="project-card-banner">
+            <div class="card-badge badge-cyan">Agentic AI</div>
+            <div class="card-status-dot"></div>
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-title">Autonomous Multi-Agent Task Orchestrator</h3>
+            <p class="project-desc">
+              State-driven multi-agent framework utilizing LangGraph and Python. Features dynamic supervisor delegation, persistent memory checkpoints, self-reflection loops, and fallback recovery mechanisms.
+            </p>
+            <div class="project-highlights">
+              <div class="ph-item"><span class="ph-bullet">▸</span> Cyclic graph state machines with LangGraph</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Multi-modal tool execution in isolated sandboxes</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Sub-second routing latency with FastAPI async core</div>
+            </div>
+            <div class="tech-pills">
+              <span>LangGraph</span>
+              <span>Python 3.12</span>
+              <span>FastAPI</span>
+              <span>Docker</span>
+              <span>Redis</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/your-username/agentic-task-orchestrator" target="_blank" class="p-link" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>Code Repository</span>
+              </a>
+              <button class="p-link p-link-preview" data-preview="agent-arch">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                <span>Architecture</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2: Enterprise Hybrid RAG Engine -->
+        <article class="project-card" data-category="rag">
+          <div class="project-card-banner">
+            <div class="card-badge badge-purple">GenAI / RAG</div>
+            <div class="card-status-dot"></div>
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-title">Enterprise Hybrid Retrieval-Augmented Generation</h3>
+            <p class="project-desc">
+              Production RAG engine combining dense vector search (Qdrant) and sparse BM25 indexing with cross-encoder reranking. Solves complex queries over 100k+ enterprise technical documents.
+            </p>
+            <div class="project-highlights">
+              <div class="ph-item"><span class="ph-bullet">▸</span> Reciprocal Rank Fusion (RRF) & Cohere Rerank</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Semantic chunking with parent-document context</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Streaming token response via Server-Sent Events (SSE)</div>
+            </div>
+            <div class="tech-pills">
+              <span>LlamaIndex</span>
+              <span>Qdrant</span>
+              <span>Python</span>
+              <span>OpenAI / Claude</span>
+              <span>FastAPI</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/your-username/hybrid-enterprise-rag" target="_blank" class="p-link" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>Code Repository</span>
+              </a>
+              <button class="p-link p-link-preview" data-preview="rag-pipeline">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                <span>Architecture</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3: Async LLM Gateway & Tool Execution Backend -->
+        <article class="project-card" data-category="backend">
+          <div class="project-card-banner">
+            <div class="card-badge badge-emerald">Python Backend</div>
+            <div class="card-status-dot"></div>
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-title">High-Throughput Async LLM Gateway & Sandbox</h3>
+            <p class="project-desc">
+              High-concurrency reverse proxy and model gateway in Python. Handles token rate-limiting, semantic caching via Redis, automated failovers, and Dockerized code execution sandboxes.
+            </p>
+            <div class="project-highlights">
+              <div class="ph-item"><span class="ph-bullet">▸</span> 8,000+ requests/min sustained on async uvicorn worker pool</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Semantic cache hit rate ~38% saving API inference costs</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Prometheus & OpenTelemetry tracing integration</div>
+            </div>
+            <div class="tech-pills">
+              <span>Python AsyncIO</span>
+              <span>FastAPI</span>
+              <span>Redis Cluster</span>
+              <span>PostgreSQL</span>
+              <span>Prometheus</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/your-username/async-llm-gateway" target="_blank" class="p-link" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>Code Repository</span>
+              </a>
+              <button class="p-link p-link-preview" data-preview="gateway-arch">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                <span>Architecture</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: Self-Healing Agentic Code Refactorer -->
+        <article class="project-card" data-category="agentic">
+          <div class="project-card-banner">
+            <div class="card-badge badge-cyan">Agentic AI</div>
+            <div class="card-status-dot"></div>
+          </div>
+          <div class="project-card-content">
+            <h3 class="project-title">Self-Healing Code Agent with AST Linting</h3>
+            <p class="project-desc">
+              Autonomous coding agent that reads repository codebases, identifies syntax and architectural anti-patterns, generates candidate patches, and iteratively executes test suites until all tests pass green.
+            </p>
+            <div class="project-highlights">
+              <div class="ph-item"><span class="ph-bullet">▸</span> Python AST inspection and tree-sitter symbol resolution</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Automatic pytest loop feedback & git diff commit generator</div>
+              <div class="ph-item"><span class="ph-bullet">▸</span> Multi-turn conversation state persistence with SQLite</div>
+            </div>
+            <div class="tech-pills">
+              <span>Python 3.12</span>
+              <span>LangChain</span>
+              <span>Pytest</span>
+              <span>Tree-Sitter</span>
+              <span>Git CLI</span>
+            </div>
+            <div class="project-actions">
+              <a href="https://github.com/your-username/self-healing-code-agent" target="_blank" class="p-link" rel="noopener noreferrer">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>Code Repository</span>
+              </a>
+              <button class="p-link p-link-preview" data-preview="agent-self-heal">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7z"/></svg>
+                <span>Architecture</span>
+              </button>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- Tech Stack Matrix -->
+    <section class="section-container" id="skills">
+      <div class="section-header">
+        <span class="section-tag">CORE COMPETENCIES</span>
+        <h2 class="section-title">Technical <span class="text-gradient-cyan">Skill Matrix</span></h2>
+        <p class="section-desc">
+          Proficiencies honed across production AI agent engineering, LLM application development, and resilient backend systems.
+        </p>
+      </div>
+
+      <div class="skills-matrix-grid">
+        
+        <!-- Category 1: Agentic & GenAI -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="cat-icon cat-icon-cyan">🤖</div>
+            <div>
+              <h3>Agentic AI & LLMs</h3>
+              <p>Autonomous systems & frameworks</p>
+            </div>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-badge">LangGraph <span>Advanced</span></div>
+            <div class="skill-badge">CrewAI / AutoGen <span>Proficient</span></div>
+            <div class="skill-badge">LlamaIndex <span>Advanced</span></div>
+            <div class="skill-badge">Multi-Agent State Machines <span>Architect</span></div>
+            <div class="skill-badge">Tool Calling & ReAct <span>Advanced</span></div>
+            <div class="skill-badge">OpenAI / Claude / Gemini API <span>Mastery</span></div>
+            <div class="skill-badge">Prompt Optimization & DSPy <span>Proficient</span></div>
+          </div>
+        </div>
+
+        <!-- Category 2: Python Backend Core -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="cat-icon cat-icon-purple">🐍</div>
+            <div>
+              <h3>Python Backend</h3>
+              <p>Scalable, concurrent services</p>
+            </div>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-badge">Python 3.12+ (Type Hints) <span>Mastery</span></div>
+            <div class="skill-badge">FastAPI & AsyncIO <span>Advanced</span></div>
+            <div class="skill-badge">Pydantic v2 (Validation) <span>Advanced</span></div>
+            <div class="skill-badge">Celery & Background Workers <span>Proficient</span></div>
+            <div class="skill-badge">SQLAlchemy & Alembic <span>Advanced</span></div>
+            <div class="skill-badge">PostgreSQL & Redis <span>Advanced</span></div>
+            <div class="skill-badge">Pytest & Unit/E2E Testing <span>Advanced</span></div>
+          </div>
+        </div>
+
+        <!-- Category 3: RAG & Vector Data -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="cat-icon cat-icon-emerald">⚡</div>
+            <div>
+              <h3>RAG & Vector Search</h3>
+              <p>High-recall semantic information retrieval</p>
+            </div>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-badge">Qdrant Vector DB <span>Advanced</span></div>
+            <div class="skill-badge">Chroma / Pinecone <span>Proficient</span></div>
+            <div class="skill-badge">Hybrid Search (Dense + BM25) <span>Advanced</span></div>
+            <div class="skill-badge">Cohere / Cross-Encoder Rerank <span>Advanced</span></div>
+            <div class="skill-badge">Semantic Chunking <span>Advanced</span></div>
+            <div class="skill-badge">Context-Aware Compression <span>Proficient</span></div>
+          </div>
+        </div>
+
+        <!-- Category 4: DevOps, MLOps & Tooling -->
+        <div class="skill-category-card">
+          <div class="skill-cat-header">
+            <div class="cat-icon cat-icon-orange">🛠️</div>
+            <div>
+              <h3>MLOps & Infrastructure</h3>
+              <p>Deployment, monitoring & reliability</p>
+            </div>
+          </div>
+          <div class="skill-items-list">
+            <div class="skill-badge">Docker & Containerization <span>Advanced</span></div>
+            <div class="skill-badge">LangSmith Tracing <span>Advanced</span></div>
+            <div class="skill-badge">Ollama / Local LLM Inference <span>Proficient</span></div>
+            <div class="skill-badge">Git & GitHub Actions CI/CD <span>Advanced</span></div>
+            <div class="skill-badge">Prometheus Metrics <span>Proficient</span></div>
+            <div class="skill-badge">Linux Server Administration <span>Advanced</span></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Python & Agent Sandbox / Terminal Playground -->
+    <section class="section-container" id="terminal-playground">
+      <div class="section-header">
+        <span class="section-tag">LIVE CODE & CLI LAB</span>
+        <h2 class="section-title">Production <span class="text-gradient-purple">Python Agent Blueprint</span></h2>
+        <p class="section-desc">
+          Inspect a distilled snippet of an production-ready state graph agent built with Python, LangGraph, and FastAPI streaming.
+        </p>
+      </div>
+
+      <div class="code-showcase-box">
+        <div class="code-header">
+          <div class="code-tabs">
+            <button class="code-tab active" data-tab="agent-py">agent_runtime.py</button>
+            <button class="code-tab" data-tab="fastapi-py">main.py (FastAPI)</button>
+            <button class="code-tab" data-tab="state-py">state_schema.py</button>
+          </div>
+          <button class="copy-code-btn" id="copy-code-btn" title="Copy code snippet">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span id="copy-btn-text">Copy Code</span>
+          </button>
+        </div>
+
+        <div class="code-content-wrap">
+          <!-- Tab 1: Agent Runtime -->
+          <pre class="code-block active" id="code-agent-py"><code><span class="kw">from</span> typing <span class="kw">import</span> Annotated, TypedDict
+<span class="kw">from</span> langgraph.graph <span class="kw">import</span> StateGraph, END
+<span class="kw">from</span> langchain_core.messages <span class="kw">import</span> BaseMessage, HumanMessage, AIMessage
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+
+<span class="kw">class</span> <span class="cls">AgentState</span>(TypedDict):
+    messages: list[BaseMessage]
+    current_plan: list[str]
+    is_completed: bool
+
+<span class="kw">async def</span> <span class="fn">supervisor_node</span>(state: AgentState) -> dict:
+    <span class="str">"""Evaluates query complexity and assigns task to specialized sub-agents."""</span>
+    last_msg = state[<span class="str">"messages"</span>][-1].content
+    <span class="cmt"># Structured routing decisions using function calling</span>
+    subagent_route = <span class="str">"research_worker"</span> <span class="kw">if</span> <span class="str">"search"</span> <span class="kw">in</span> last_msg <span class="kw">else</span> <span class="str">"code_worker"</span>
+    <span class="kw">return</span> {<span class="str">"next"</span>: subagent_route}
+
+<span class="cmt"># Initialize Cyclic StateGraph</span>
+workflow = StateGraph(AgentState)
+workflow.add_node(<span class="str">"supervisor"</span>, supervisor_node)
+workflow.add_node(<span class="str">"research_worker"</span>, research_agent)
+workflow.add_node(<span class="str">"code_worker"</span>, code_agent)
+
+workflow.set_entry_point(<span class="str">"supervisor"</span>)
+agent_app = workflow.compile()</code></pre>
+
+          <!-- Tab 2: FastAPI -->
+          <pre class="code-block" id="code-fastapi-py"><code><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, HTTPException
+<span class="kw">from</span> fastapi.responses <span class="kw">import</span> StreamingResponse
+<span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel
+<span class="kw">import</span> asyncio
+
+app = FastAPI(title=<span class="str">"Agentic AI Gateway"</span>, version=<span class="str">"1.0.0"</span>)
+
+<span class="kw">class</span> <span class="cls">UserPromptRequest</span>(BaseModel):
+    query: str
+    session_id: str
+    temperature: float = 0.2
+
+<span class="dec">@app.post</span>(<span class="str">"/api/v1/agents/stream"</span>)
+<span class="kw">async def</span> <span class="fn">stream_agent_execution</span>(req: UserPromptRequest):
+    <span class="str">"""Streams token chunks and intermediate tool reasoning via SSE."""</span>
+    <span class="kw">async def</span> <span class="fn">event_generator</span>():
+        <span class="kw">async for</span> event <span class="kw">in</span> agent_app.astream_events({<span class="str">"messages"</span>: [HumanMessage(content=req.query)]}, version=<span class="str">"v2"</span>):
+            <span class="kw">if</span> event[<span class="str">"event"</span>] == <span class="str">"on_chat_model_stream"</span>:
+                yield f<span class="str">"data: {event['data']['chunk'].content}\n\n"</span>
+    
+    <span class="kw">return</span> StreamingResponse(event_generator(), media_type=<span class="str">"text/event-stream"</span>)</code></pre>
+
+          <!-- Tab 3: State Schema -->
+          <pre class="code-block" id="code-state-py"><code><span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field
+<span class="kw">from</span> typing <span class="kw">import</span> Optional, Literal
+
+<span class="kw">class</span> <span class="cls">ToolExecutionResult</span>(BaseModel):
+    tool_name: str
+    status: Literal[<span class="str">"success"</span>, <span class="str">"retry"</span>, <span class="str">"fatal_error"</span>]
+    raw_output: dict
+    execution_time_ms: float
+
+<span class="kw">class</span> <span class="cls">RAGRetrievalContext</span>(BaseModel):
+    chunk_id: str
+    document_title: str
+    dense_similarity_score: float = Field(ge=0.0, le=1.0)
+    sparse_bm25_score: float
+    rerank_confidence: float</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="section-container" id="about">
+      <div class="about-grid">
+        <div class="about-text-col">
+          <span class="section-tag">ENGINEER PROFILE</span>
+          <h2 class="section-title">Bridging <span class="text-gradient-cyan">Generative Intelligence</span> & Bulletproof Systems</h2>
+          <p class="about-p">
+            I am a software engineer focused at the intersection of <strong>Generative AI, Autonomous Agents, and Scalable Python Backends</strong>. I believe the true power of AI is unlocked when LLMs move beyond simple text-completion into autonomous, goal-driven agents capable of tool interaction, persistent state recovery, and self-correction.
+          </p>
+          <p class="about-p">
+            Whether architecting multi-agent DAGs with LangGraph, optimizing hybrid retrieval over dense vector stores like Qdrant, or building high-concurrency FastAPI streaming APIs, I prioritize <strong>reliability, sub-second latency, and production-grade software craftsmanship</strong>.
+          </p>
+
+          <div class="about-highlights-list">
+            <div class="about-hl-item">
+              <span class="hl-icon">⚡</span>
+              <div>
+                <strong>Non-Deterministic Thinking, Deterministic Engineering</strong>
+                <p>Ensuring AI outputs adhere to strict schemas, security sandboxes, and automated evaluation metrics.</p>
+              </div>
+            </div>
+            <div class="about-hl-item">
+              <span class="hl-icon">🎯</span>
+              <div>
+                <strong>End-to-End Delivery</strong>
+                <p>From prompt engineering and agent orchestration to Dockerized async microservices and CI/CD pipelines.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-card-col">
+          <div class="profile-glass-card">
+            <div class="profile-header">
+              <div class="profile-avatar">
+                <span class="avatar-text">DM</span>
+                <span class="avatar-badge">⚡</span>
+              </div>
+              <div class="profile-info">
+                <h3>Divyansh Mishra</h3>
+                <p>GenAI & Python Backend Specialist</p>
+                <div class="profile-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span>India · Global Remote</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="profile-stats">
+              <div class="p-stat">
+                <span class="p-stat-val">3.12+</span>
+                <span class="p-stat-label">Python Standard</span>
+              </div>
+              <div class="p-stat">
+                <span class="p-stat-val">&lt;200ms</span>
+                <span class="p-stat-label">Target RAG Latency</span>
+              </div>
+              <div class="p-stat">
+                <span class="p-stat-val">100%</span>
+                <span class="p-stat-label">Production Focus</span>
+              </div>
+            </div>
+
+            <div class="profile-links">
+              <a href="https://github.com/your-username" target="_blank" class="p-link-btn" rel="noopener noreferrer">
+                <span>GitHub Profile</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+              <a href="https://linkedin.com/in/your-username" target="_blank" class="p-link-btn" rel="noopener noreferrer">
+                <span>LinkedIn</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact & Connect Section -->
+    <section class="section-container" id="contact">
+      <div class="contact-box">
+        <div class="contact-header">
+          <span class="section-tag">INITIATE CONNECTION</span>
+          <h2 class="section-title">Let's Build the Next Generation of <span class="text-gradient-cyan">AI Systems</span></h2>
+          <p class="section-desc">
+            Open to discussing GenAI architectures, agentic system design, Python backend consulting, or full-time opportunities.
+          </p>
+        </div>
+
+        <div class="contact-channels-grid">
+          
+          <div class="contact-channel-card" id="email-card">
+            <div class="channel-icon">✉️</div>
+            <div class="channel-info">
+              <h4>Direct Email</h4>
+              <p class="channel-val" id="email-text">divyansh.mishra.work@example.com</p>
+            </div>
+            <button class="channel-btn" id="copy-email-btn" title="Copy Email to Clipboard">
+              <span>Copy</span>
+            </button>
+          </div>
+
+          <a href="https://github.com/your-username" target="_blank" class="contact-channel-card" rel="noopener noreferrer">
+            <div class="channel-icon">🐙</div>
+            <div class="channel-info">
+              <h4>GitHub</h4>
+              <p class="channel-val">@your-username</p>
+            </div>
+            <span class="channel-action-arrow">↗</span>
+          </a>
+
+          <a href="https://linkedin.com/in/your-username" target="_blank" class="contact-channel-card" rel="noopener noreferrer">
+            <div class="channel-icon">💼</div>
+            <div class="channel-info">
+              <h4>LinkedIn</h4>
+              <p class="channel-val">in/your-username</p>
+            </div>
+            <span class="channel-action-arrow">↗</span>
+          </a>
+
+        </div>
+
+        <!-- Interactive Direct Message Form (Ready for Formspree / EmailJS) -->
+        <form class="contact-form" id="contact-form" onsubmit="event.preventDefault(); window.handleContactSubmit();">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="form-name">Your Name</label>
+              <input type="text" id="form-name" required placeholder="e.g. Sam Altman">
+            </div>
+            <div class="form-group">
+              <label for="form-email">Your Email</label>
+              <input type="email" id="form-email" required placeholder="e.g. sam@openai.com">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="form-subject">Topic / Area of Interest</label>
+            <input type="text" id="form-subject" required placeholder="e.g. Multi-Agent System Architecture / Job Opportunity">
+          </div>
+          <div class="form-group">
+            <label for="form-message">Message</label>
+            <textarea id="form-message" rows="4" required placeholder="Tell me about your project, team, or ideas..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary form-submit-btn">
+            <span>Send Message</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Architecture Modal -->
+  <div class="modal-overlay" id="arch-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modal-title">System Architecture Details</h3>
+        <button class="modal-close-btn" id="modal-close">&times;</button>
+      </div>
+      <div class="modal-body" id="modal-content">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-left">
+        <p>© <span id="current-year">2026</span> Divyansh Mishra · Engineered with precision for GitHub Pages & Vercel.</p>
+      </div>
+      <div class="footer-right">
+        <a href="#hero">Back to Top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript Logic -->
+  <script src="main.js"></script>
+</body>
+</html>
