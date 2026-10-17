@@ -1,97 +1,80 @@
-# Divyansh Mishra - GenAI, Agentic AI & Python Backend Portfolio
+# Divyansh Mishra — Distributed Systems & AI Observatory
 
-A high-performance, dark-themed developer portfolio tailored for engineers specializing in **Generative AI, Autonomous Agent Swarms (LangGraph, AutoGen, CrewAI), Production RAG Pipelines, and Scalable Python Async Backends (FastAPI, Redis, Qdrant)**.
+An award-winning, executive-grade **Live Distributed Systems & AI Observatory** portfolio for **Divyansh Mishra**, Python Backend Engineer & AI/LLM Systems Engineer at **Hexaview Technologies**.
 
-Designed with an obsidian glassmorphism aesthetic and interactive high-tech terminal elements. **Zero external build tools or complex frameworks required**—instantly deployable to **GitHub Pages** or **Vercel** in under 2 minutes.
-
----
-
-## ⚡ Live Features
-
-1. **Interactive Neural / Agent Graph Background**: Real-time canvas rendering connected agent nodes with mouse proximity repulsion and glowing filaments.
-2. **Interactive Hero Terminal Simulator (CLI REPL)**:
-   - Mac/Linux-style window with active status badges.
-   - Run live commands: `help`, `whoami`, `agents --status`, `stack`, `rag --eval`, `contact`, `clear`.
-   - Clickable quick-run command chips for instant execution.
-3. **Agentic System Architecture Flow**: Visual breakdown of supervisor routing, specialized subagents, sandboxed execution, and guardrail evaluation.
-4. **Featured Projects with Filter Tabs**:
-   - Filter by *All*, *Agentic AI & Swarms*, *GenAI & RAG*, *Python Backend & APIs*.
-   - Includes interactive architecture deep-dive modals explaining state machines, hybrid retrieval, and semantic caching.
-5. **Technical Skill Matrix**: Categorized proficiency grid spanning Agentic Frameworks, Python Core, Vector Stores, and MLOps.
-6. **Live Python Agent Blueprint**: Interactive code showcase tab with syntax highlighting for `agent_runtime.py`, `main.py (FastAPI)`, and `state_schema.py` + 1-click clipboard copy.
-7. **Contact Channels & Form**: Quick email copy button with toast alert, GitHub/LinkedIn links, and direct message input.
-8. **100% Mobile & Ultra-wide Responsive**: Optimized typography, mobile hamburger menu, and 60fps animations.
+Built with an Executive Minimalist Light aesthetic (Stripe, Linear & Vercel inspired), featuring live architectural simulators, interactive pipeline animations, Raycast-style keyboard command palette, and an in-page high-resolution resume viewer with universal webpage force-download.
 
 ---
 
-## 🚀 How to Host on GitHub Pages (Free & Instant)
+## ⚡ Key Highlights & Observatory Architecture
 
-You have two simple options on GitHub:
+### 1. 🎛️ Dual-Mode Switcher (Navbar)
+- **Executive View**: Fast 30-second recruiter skim with high-impact production metrics, Bento Grid summary, and instant 1-click in-page resume viewer.
+- **Architect View**: Deep technical dive into live interactive distributed systems diagrams, telemetry graphs, and live trade execution simulations.
 
-### Option A: User Portfolio Site (`your-username.github.io`) [Recommended]
-If you name your repository `<your-username>.github.io`, it will be served directly at `https://<your-username>.github.io`.
+### 2. ⚡ Interactive SMA Rebalancing Benchmark Simulator
+- Simulates Divyansh's production multi-tenant rebalancer from Hexaview Technologies.
+- **Live Pipeline Flow**: `Client Accounts (1,240)` &rarr; `Target Model Matrix` &rarr; `FastAPI & Async Worker` &rarr; `Validated Trade Proposals`.
+- **Live Telemetry Counter**: Proves latency reduction from **2+ Hours (Previous Manual Spreadsheet Process) down to <2 Seconds (Automated Flow, >99.9% latency cut)** with **0% allocation mismatch errors**.
+- **Dynamic Trade Stream**: Real-time generation of atomic buy/sell orders in the terminal log drawer.
 
-1. Go to [github.com/new](https://github.com/new) and create a public repository named `<your-username>.github.io` (e.g., `divyanshmishra.github.io`).
-2. Open terminal in this portfolio folder:
-   ```bash
-   cd "C:\Users\divyansh.mishra\.gemini\antigravity-ide\scratch\portfolio"
-   git init
-   git add .
-   git commit -m "feat: initial commit of GenAI portfolio"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/<your-username>.github.io.git
-   git push -u origin main
-   ```
-3. In your GitHub repository:
-   - Go to **Settings** → **Pages** (under "Code and automation").
-   - Under **Build and deployment**, ensure Source is set to **Deploy from a branch**.
-   - Branch: `main`, folder: `/(root)`, click **Save**.
-4. Within 60 seconds, your portfolio is live at `https://<your-username>.github.io`!
+### 3. 🤖 Agentic RAG Financial Pipeline Interactive Map
+- Step-by-step visual node graph of the multimodal document intelligence platform:
+  1. **Brokerage Statement Ingestion**: Multimodal OCR via Llama APIs (99.4% extraction accuracy).
+  2. **ChromaDB Vector Store**: High-dimensional embeddings with Maximal Marginal Relevance (MMR, k=6, fetch_k=20).
+  3. **Live Financial Tools**: Automated tool-calling with Yahoo Finance & Financial Modeling Prep (FMP) APIs (Redis caching slashes query latency by 60%).
+  4. **Streaming LLM Output**: Token-streamed synthesis with source verification citations.
+- Interactive telemetry inspection console for each node.
 
----
+### 4. ⌘ Command Palette (`Cmd + K` / `Ctrl + K`)
+- Raycast & Linear style keyboard action center.
+- Instant search and keyboard navigation (`↑`, `↓`, `↵`, `ESC`) for:
+  - Downloading Official Resume PDF
+  - Launching live rebalancer simulator
+  - Tracing Agentic RAG pipeline flow
+  - Toggling Executive vs Architect modes
+  - Copying direct email address
+  - Opening LeetCode and GitHub profiles
 
-### Option B: Project Subdirectory Site (`your-username.github.io/portfolio`)
-1. Create a repository named `portfolio` on GitHub.
-2. Initialize and push your code:
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git branch -M main
-   git remote add origin https://github.com/<your-username>/portfolio.git
-   git push -u origin main
-   ```
-3. Go to **Settings** → **Pages** → Source: `Deploy from a branch` → Select `main` / `/ (root)` → **Save**.
-4. Your site will be live at `https://<your-username>.github.io/portfolio`.
+### 5. 📄 In-Page Resume Viewer & Universal Force-Download
+- Embedded high-res document viewer with responsive iframe & object wrappers.
+- **Blob-based Webpage Force-Download**: Uses client-side Blob object URLs (`fetch -> blob -> URL.createObjectURL -> link.click()`), ensuring standard Save-File dialogs trigger reliably across GitHub Pages, Netlify, Vercel, or custom CDN domains.
+- Fullscreen modal inspection mode with 1-click download actions.
 
----
-
-## 🔺 Alternative: Deploy on Vercel (1-Click)
-
-1. Push your repository to GitHub.
-2. Go to [vercel.com](https://vercel.com) and click **"Add New Project"**.
-3. Import your GitHub repository.
-4. Framework Preset: Leave as **Other** (Static HTML).
-5. Click **Deploy**. Vercel will instantly issue a free custom `*.vercel.app` URL with automatic global CDN and SSL.
+### 6. 🍱 Executive Bento Grid & Verified Credentials
+- **Hexaview Technologies (2024–Present)**: >99.9% Rebalance Latency Cut, 60% Doc Analysis Latency Cut, 1000+ SSO Enterprise Users.
+- **LeetCode Competitive Standing**: 700+ Problems Solved, 1800+ Contest Rating (Top 7% Globally).
+- **Galgotias University (2020–2024)**: B.Tech in CSE with **8.7 / 10 CGPA**.
+- **Coursify-AI**: Autonomous multimodal course generator (FastAPI, Google Gemini, OpenAI).
 
 ---
 
-## 🛠️ Personalization Checklist
+## 🚀 Instant Deployment (GitHub Pages)
 
-Open `index.html` and customize the following placeholders:
-- [ ] Replace `your-username` with your actual GitHub & LinkedIn handles.
-- [ ] Replace `divyansh.mishra.work@example.com` with your preferred public email address.
-- [ ] In the `<article class="project-card">` sections, update project descriptions or repository links to match your specific repos.
-- [ ] (Optional) In `main.js`, add custom commands to the `commandResponses` dictionary in `initHeroTerminal()`.
+### Host at `https://divyanshmishra101010.github.io`
+
+```bash
+git add .
+git commit -m "feat: transform portfolio into live distributed systems and AI observatory"
+git push origin main
+```
+
+In GitHub Repository Settings:
+- Go to **Settings** &rarr; **Pages**
+- Source: **Deploy from a branch** (`main` / `/(root)`)
+- Click **Save**
+
+Site is immediately live at: **`https://divyanshmishra101010.github.io`**
 
 ---
 
-## 📂 File Structure
+## 📂 File Architecture
 
 ```
 portfolio/
-├── index.html        # Main semantic webpage, metadata, and sections
-├── styles.css        # Obsidian dark theme, glassmorphism, terminal UI & responsive styles
-├── main.js           # Particle canvas, interactive terminal, modals, and tab filters
-└── README.md         # Deployment & documentation guide
+├── Divyansh_Mishra_Resume.pdf    # Official resume PDF (downloadable)
+├── index.html                   # Observatory HTML5 structure & semantic elements
+├── styles.css                   # Executive Minimalist Light theme & responsive multi-device styles
+├── main.js                      # Simulators, command palette, mode switcher & blob downloader
+└── README.md                    # Architecture & deployment documentation
 ```

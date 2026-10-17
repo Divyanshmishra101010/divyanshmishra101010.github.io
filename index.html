@@ -1,370 +1,701 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light" data-view-mode="executive">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Divyansh Mishra | Python Backend & AI/LLM Engineer</title>
+  <title>Divyansh Mishra | Distributed Systems &amp; AI Observatory</title>
 
   <!-- SEO & Social Meta Tags -->
-  <meta name="description" content="Portfolio of Divyansh Mishra - Python Backend & AI/LLM Engineer with 2+ years building scalable FastAPI backends, Agentic RAG pipelines, LangChain systems, and multi-tenant SaaS platforms.">
-  <meta name="keywords" content="Divyansh Mishra, Python Backend Engineer, AI Engineer, LLM Engineer, FastAPI, LangChain, LangGraph, RAG, OpenAI, Gemini, PostgreSQL, Redis, AWS">
+  <meta name="description" content="Divyansh Mishra — Python Backend & AI/LLM Systems Engineer at Hexaview Technologies. Live Distributed Systems Observatory: SMA Rebalancing Simulator, Agentic RAG Pipeline, and In-Page Resume.">
+  <meta name="keywords" content="Divyansh Mishra, Python Backend Engineer, AI Engineer, LLM Engineer, FastAPI, LangChain, Agentic RAG, Distributed Systems, PostgreSQL, Redis, SMA Rebalancer, LeetCode">
   <meta name="author" content="Divyansh Mishra">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Divyansh Mishra | Python Backend & AI/LLM Engineer">
-  <meta property="og:description" content="Building scalable Python backends, agentic RAG systems, and LLM-powered financial platforms at Hexaview Technologies.">
+  <meta property="og:title" content="Divyansh Mishra | Distributed Systems &amp; AI Observatory">
+  <meta property="og:description" content="Engineering high-concurrency FastAPI backends, Agentic RAG pipelines, and multi-tenant distributed platforms at Hexaview Technologies.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://divyanshmishra101010.github.io">
 
-  <!-- Favicon -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
+  <!-- Favicon: Clean Monogram -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2224%22 fill=%22%230f172a%22/><text x=%2250%25%22 y=%2255%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 font-family=%22system-ui,-apple-system,sans-serif%22 font-size=%2246%22 font-weight=%22800%22 fill=%22%232563eb%22>DM</text></svg>">
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Plus Jakarta Sans & Fira Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Ambient Glowing Background Elements -->
-  <div class="glow-orb orb-1"></div>
-  <div class="glow-orb orb-2"></div>
-  <div class="glow-orb orb-3"></div>
-
-  <!-- Neural Network Particle Canvas -->
-  <canvas id="neural-canvas"></canvas>
-
-  <!-- Navigation Bar -->
+  <!-- ===================================================================
+       FLOATING GLASS NAVBAR WITH DUAL-MODE SWITCHER & CMD+K PALETTE
+       =================================================================== -->
   <header class="navbar" id="navbar">
     <div class="nav-container">
-      <a href="#hero" class="brand-logo" id="brand-logo">
-        <span class="logo-symbol">&lt;/&gt;</span>
-        <span class="logo-text">divyansh<span class="logo-accent">.dev</span></span>
+
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo" id="brand-logo" aria-label="Divyansh Mishra Home">
+        <span class="logo-badge">&lt;/&gt;</span>
+        <span class="logo-text">Divyansh<span class="logo-accent">.dev</span></span>
+        <span class="logo-live-dot" title="Observatory Engine Active"></span>
       </a>
 
+      <!-- Dual Mode Switcher (Executive vs Architect) -->
+      <div class="mode-switcher-wrap" id="mode-switcher" role="radiogroup" aria-label="Portfolio View Mode">
+        <button class="mode-tab active" data-mode="executive" id="mode-executive-btn" role="radio" aria-checked="true" title="Fast 30-sec recruiter view with metrics & resume">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 12H8"/></svg>
+          <span>Executive View</span>
+        </button>
+        <button class="mode-tab" data-mode="architect" id="mode-architect-btn" role="radio" aria-checked="false" title="Deep dive with live simulators & interactive system maps">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <span>Architect View</span>
+        </button>
+      </div>
+
+      <!-- Navigation Links -->
       <nav class="nav-links" id="nav-links">
-        <a href="#about" class="nav-item">About</a>
         <a href="#experience" class="nav-item">Experience</a>
+        <a href="#observatory" class="nav-item nav-item-highlight">Live Simulators</a>
         <a href="#projects" class="nav-item">Projects</a>
         <a href="#skills" class="nav-item">Tech Stack</a>
-        <a href="#terminal-playground" class="nav-item">Terminal</a>
-        <a href="#contact" class="nav-item nav-btn">Get In Touch</a>
+        <a href="#resume" class="nav-item">Resume</a>
+        <a href="#education" class="nav-item">Education &amp; DSA</a>
+        <a href="#contact" class="nav-item">Contact</a>
       </nav>
 
-      <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
+      <!-- Nav Actions: Quick Cmd+K + Resume + Contact -->
+      <div class="nav-actions">
+        <!-- Quick Command Palette Trigger -->
+        <button class="cmd-k-trigger" id="cmd-palette-trigger" title="Open Command Palette (Press ⌘K or Ctrl+K)">
+          <span class="cmd-k-icon">⌘</span>
+          <span class="cmd-k-label">K</span>
+          <span class="cmd-k-tooltip">Quick Actions</span>
+        </button>
+
+        <!-- In-Page PDF View / Modal Trigger -->
+        <button class="nav-btn-resume" id="nav-resume-btn" title="View Official Resume (PDF)">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <span>Resume PDF</span>
+        </button>
+
+        <a href="#contact" class="nav-btn-contact">Hire Me</a>
+
+        <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
     </div>
   </header>
 
   <main>
 
-    <!-- ===== HERO SECTION ===== -->
+    <!-- ===== HERO SECTION (Minimalist, High Impact Linear Aesthetic) ===== -->
     <section class="hero-section" id="hero">
-      <div class="hero-content">
+      <div class="hero-inner">
 
-        <!-- Left: Text & CTA -->
-        <div class="hero-text-col">
+        <!-- Status Availability Pill with Live Observatory Telemetry -->
+        <div class="hero-status-wrap">
           <div class="status-badge">
             <span class="status-pulse"></span>
-            <span class="status-text">Open to Backend & AI/LLM Engineering Roles</span>
-          </div>
-
-          <h1 class="hero-heading">
-            Python Backend &amp; <span class="text-gradient-cyan">AI/LLM Engineer</span> Building <span class="text-gradient-purple">Scalable Systems</span>
-          </h1>
-
-          <p class="hero-subtext">
-            Hi, I'm <strong class="highlight-text">Divyansh Mishra</strong>. I build high-performance REST APIs, Agentic RAG pipelines, and multi-tenant SaaS backends with <strong>FastAPI, LangChain, LangGraph, PostgreSQL, Redis, and AWS</strong>. Currently at <strong class="highlight-text">Hexaview Technologies</strong>.
-          </p>
-
-          <div class="hero-cta-group">
-            <a href="#projects" class="btn btn-primary">
-              <span>View Projects</span>
-              <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a href="#terminal-box" class="btn btn-secondary">
-              <span class="terminal-prompt-char">&gt;_</span>
-              <span>Open Terminal</span>
-            </a>
-            <a href="#contact" class="btn btn-outline">Contact Me</a>
-          </div>
-
-          <!-- Key Metrics from Resume -->
-          <div class="hero-metrics">
-            <div class="metric-item">
-              <span class="metric-number">2+ Years</span>
-              <span class="metric-label">Backend & AI Engineering</span>
-            </div>
-            <div class="metric-divider"></div>
-            <div class="metric-item">
-              <span class="metric-number">&gt;99.9%</span>
-              <span class="metric-label">Rebalancing Time Reduction</span>
-            </div>
-            <div class="metric-divider"></div>
-            <div class="metric-item">
-              <span class="metric-number">700+</span>
-              <span class="metric-label">LeetCode Problems Solved</span>
-            </div>
+            <span class="status-text">Available for Python Backend &amp; AI / LLM Roles</span>
+            <span class="status-badge-divider"></span>
+            <span class="status-meta">Hexaview Technologies &middot; Noida, India</span>
           </div>
         </div>
 
-        <!-- Right: Interactive Terminal -->
-        <div class="hero-terminal-col" id="terminal-box">
-          <div class="terminal-window">
+        <!-- Headline & Identity -->
+        <div class="hero-titles">
+          <h1 class="hero-heading">
+            Divyansh Mishra
+          </h1>
+          <p class="hero-role-lead">
+            Python Backend &amp; <span class="text-gradient-cyan">AI/LLM Systems Engineer</span>
+          </p>
+        </div>
 
-            <div class="terminal-header">
-              <div class="terminal-buttons">
-                <span class="t-btn t-btn-red"></span>
-                <span class="t-btn t-btn-yellow"></span>
-                <span class="t-btn t-btn-green"></span>
-              </div>
-              <div class="terminal-title">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M6 8l4 4-4 4M12 16h6"/></svg>
-                <span>divyansh@hexaview: ~ (python 3.12)</span>
-              </div>
-              <div class="terminal-env-badge">ACTIVE</div>
+        <!-- Concise Executive Bio -->
+        <p class="hero-subtext">
+          Architecting high-concurrency <strong>FastAPI backends</strong>, <strong>Agentic RAG pipelines</strong>, and multi-tenant distributed platforms with Python, PostgreSQL, Redis, LangChain, and AWS. Currently engineering mission-critical financial AI platforms at <strong class="highlight-company">Hexaview Technologies</strong>.
+        </p>
+
+        <!-- Executive Metrics Strip -->
+        <div class="hero-metrics-strip">
+          <div class="metric-chip">
+            <span class="metric-val">2+ Years</span>
+            <span class="metric-lbl">Production Backend &amp; AI</span>
+          </div>
+          <div class="metric-chip-divider"></div>
+          <div class="metric-chip">
+            <span class="metric-val">&gt;99.9%</span>
+            <span class="metric-lbl">Latency Cut (SMA Engine)</span>
+          </div>
+          <div class="metric-chip-divider"></div>
+          <div class="metric-chip">
+            <span class="metric-val">60% Faster</span>
+            <span class="metric-lbl">Financial Doc Reports</span>
+          </div>
+          <div class="metric-chip-divider"></div>
+          <div class="metric-chip">
+            <span class="metric-val">700+ Solved</span>
+            <span class="metric-lbl">LeetCode (1800+ Top 7%)</span>
+          </div>
+        </div>
+
+        <!-- Action CTAs: Direct In-Page PDF View + Webpage Download + Projects -->
+        <div class="hero-cta-group">
+          <!-- Primary CTA: Triggers In-Page PDF Viewer -->
+          <button class="btn btn-primary" id="hero-view-resume-btn">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span>View Resume (In-Page)</span>
+          </button>
+
+          <!-- Direct Download CTA (Webpage-based force download) -->
+          <a href="./Divyansh_Mishra_Resume.pdf" download="Divyansh_Mishra_Resume.pdf" class="btn btn-secondary js-download-resume" id="hero-download-resume-btn" title="Download Official Resume (PDF)">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download PDF</span>
+          </a>
+
+          <!-- Live Simulator Quick Jump -->
+          <a href="#observatory" class="btn btn-observatory">
+            <span class="pulse-indicator"></span>
+            <span>Live System Simulator</span>
+          </a>
+
+          <!-- Explore Projects -->
+          <a href="#projects" class="btn btn-outline">
+            <span>Explore Projects</span>
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Social Quick Bar -->
+        <div class="hero-social-bar">
+          <a href="https://github.com/Divyanshmishra101010" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="GitHub - Divyanshmishra101010">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            <span>GitHub</span>
+          </a>
+          <a href="https://www.linkedin.com/in/divyansh-mishra-101764207/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn - Divyansh Mishra">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://leetcode.com/u/Divyansh_Mishra10/" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LeetCode - 700+ Problems">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .666-1.607L9.36 7.788l4.498-4.815a1.379 1.379 0 0 0-.375-2.973zm2.592 11.233a1.376 1.376 0 0 0-.974.405l-4.186 4.184a1.379 1.379 0 1 0 1.95 1.95l4.186-4.184a1.38 1.38 0 0 0-.976-2.355z"/></svg>
+            <span>LeetCode</span>
+          </a>
+          <a href="mailto:divyanshmishra101010@gmail.com" class="social-icon-btn" title="Email Divyansh">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <span>Email</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== EXECUTIVE BENTO GRID (Linear/Apple Style Highlights) ===== -->
+    <section class="section-container" id="bento-summary">
+      <div class="section-header">
+        <span class="section-tag">EXECUTIVE TELEMETRY</span>
+        <h2 class="section-title">Production Overview &amp; <span class="text-gradient-cyan">Bento Highlights</span></h2>
+        <p class="section-desc">
+          Core engineering credentials, algorithmic accomplishments, and real-world system benchmarks.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+
+        <!-- Bento Card 1: Hexaview Impact -->
+        <div class="bento-card bento-card-large">
+          <div class="bento-badge">CURRENT IMPACT &middot; 2024–PRESENT</div>
+          <h3 class="bento-title">Hexaview Technologies</h3>
+          <p class="bento-sub">Python Backend Engineer &middot; AI / LLM Engineer</p>
+          <div class="bento-metrics-row">
+            <div class="bm-box">
+              <span class="bm-val text-gradient-cyan">&gt;99.9%</span>
+              <span class="bm-lbl">Rebalance Latency Cut</span>
             </div>
-
-            <div class="terminal-body" id="hero-terminal-body">
-              <div class="terminal-output-line">
-                <span class="t-comment"># Welcome to Divyansh's engineering terminal...</span>
-              </div>
-              <div class="terminal-output-line">
-                <span class="t-green">&#10004; FastAPI backend online.</span> LangChain agent runtime on port <span class="t-cyan">8000</span>.
-              </div>
-              <div class="terminal-output-line">
-                <span class="t-comment"># Try: whoami | experience | stack | projects | leetcode</span>
-              </div>
-              <div class="terminal-interactive-history" id="terminal-history"></div>
-              <div class="terminal-input-row">
-                <span class="terminal-prompt">divyansh@hexaview:~$</span>
-                <input type="text" id="terminal-input" class="terminal-input" autocomplete="off" spellcheck="false" placeholder="type 'help' to begin...">
-              </div>
+            <div class="bm-box">
+              <span class="bm-val text-gradient-indigo">60%</span>
+              <span class="bm-lbl">Doc Analysis Latency Cut</span>
             </div>
-
-            <div class="terminal-quick-chips">
-              <span class="chip-label">Quick Run:</span>
-              <button class="cmd-chip" data-cmd="whoami">whoami</button>
-              <button class="cmd-chip" data-cmd="experience">experience</button>
-              <button class="cmd-chip" data-cmd="stack">stack</button>
-              <button class="cmd-chip" data-cmd="projects">projects</button>
-              <button class="cmd-chip" data-cmd="leetcode">leetcode</button>
-              <button class="cmd-chip" data-cmd="clear">clear</button>
+            <div class="bm-box">
+              <span class="bm-val text-gradient-emerald">1000+</span>
+              <span class="bm-lbl">SSO Enterprise Users</span>
             </div>
+          </div>
+          <p class="bento-desc">
+            Architecting mission-critical financial AI platforms, multimodal brokerage statement parsing, and low-latency reconciliation engines with zero allocation mismatch errors.
+          </p>
+        </div>
 
+        <!-- Bento Card 2: LeetCode & Algorithms -->
+        <div class="bento-card">
+          <div class="bento-badge badge-amber">PROBLEM SOLVING</div>
+          <div class="bento-header-split">
+            <div>
+              <h3 class="bento-title">700+ Problems</h3>
+              <p class="bento-sub">LeetCode Competitive Standing</p>
+            </div>
+            <div class="bento-icon-tag"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          </div>
+          <div class="leetcode-rating-pill">
+            <span class="lr-label">Contest Rating:</span>
+            <span class="lr-score">1800+</span>
+            <span class="lr-percentile">Top 7% Globally</span>
+          </div>
+          <p class="bento-desc">
+            Deep algorithmic intuition in Dynamic Programming, Graph Traversals, Sliding Window, and Tree optimizations.
+          </p>
+          <a href="https://leetcode.com/u/Divyansh_Mishra10/" target="_blank" rel="noopener noreferrer" class="bento-link">
+            <span>View LeetCode Profile</span>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+
+        <!-- Bento Card 3: Academic Fundamentals -->
+        <div class="bento-card">
+          <div class="bento-badge badge-purple">ACADEMIC FOUNDATION</div>
+          <div class="bento-header-split">
+            <div>
+              <h3 class="bento-title">B.Tech in CSE</h3>
+              <p class="bento-sub">Galgotias University &middot; 2020–2024</p>
+            </div>
+            <div class="bento-icon-tag"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          </div>
+          <div class="cgpa-callout">
+            <span class="cgpa-number">8.7</span>
+            <span class="cgpa-scale">/ 10 CGPA</span>
+          </div>
+          <p class="bento-desc">
+            Specialization in Distributed Systems, Operating Systems, Relational Schema Architecture, and Concurrency.
+          </p>
+        </div>
+
+        <!-- Bento Card 4: Architecture Core Stack -->
+        <div class="bento-card bento-card-wide">
+          <div class="bento-badge">PRODUCTION TECH STACK</div>
+          <div class="bento-stack-tags">
+            <span class="b-tag">Python 3.13</span>
+            <span class="b-tag">FastAPI</span>
+            <span class="b-tag">LangChain</span>
+            <span class="b-tag">LangGraph</span>
+            <span class="b-tag">OpenAI GPT-4o</span>
+            <span class="b-tag">Google Gemini</span>
+            <span class="b-tag">PostgreSQL</span>
+            <span class="b-tag">Redis Cache</span>
+            <span class="b-tag">ChromaDB Vector</span>
+            <span class="b-tag">SQLAlchemy</span>
+            <span class="b-tag">Docker</span>
+            <span class="b-tag">AWS Lambda</span>
+            <span class="b-tag">Pytest</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ===== PROFESSIONAL EXPERIENCE SECTION ===== -->
+    <!-- ===================================================================
+         OBSERVATORY: LIVE DISTRIBUTED SYSTEM & AI INTERACTIVE SIMULATORS
+         =================================================================== -->
+    <section class="section-container observatory-section" id="observatory">
+      <div class="section-header">
+        <div class="observatory-live-badge">
+          <span class="status-pulse pulse-cyan"></span>
+          <span>LIVE ARCHITECTURAL SIMULATORS</span>
+        </div>
+        <h2 class="section-title">The Distributed Systems &amp; <span class="text-gradient-cyan">AI Observatory</span></h2>
+        <p class="section-desc">
+          Interact with production system simulations modeled directly after Divyansh's work at Hexaview Technologies. Run live rebalancing benchmarks and trace agentic RAG workflows.
+        </p>
+      </div>
+
+      <!-- Observatory Tabs: Simulator 1 vs Simulator 2 -->
+      <div class="obs-nav-tabs">
+        <button class="obs-tab active" id="tab-rebalancer-btn" data-sim="rebalancer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>1. SMA Portfolio Rebalancing Simulator</span>
+        </button>
+        <button class="obs-tab" id="tab-rag-btn" data-sim="rag">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <span>2. Agentic RAG Flow Visualizer</span>
+        </button>
+      </div>
+
+      <!-- SIMULATOR 1: SMA Portfolio Rebalancer Benchmark Engine -->
+      <div class="obs-workbench active" id="sim-rebalancer-panel">
+        <div class="sim-header-bar">
+          <div>
+            <h3 class="sim-title">SMA High-Concurrency Rebalancing Benchmark</h3>
+            <p class="sim-subtitle">Reconciles 1,240 client accounts against model portfolios, calculates delta drift, and validates atomic buy/sell trade orders.</p>
+          </div>
+          <div class="sim-controls-group">
+            <button class="btn btn-primary btn-sim-run" id="trigger-sim-btn">
+              <span class="sim-btn-icon">&#9658;</span>
+              <span id="sim-btn-text">Trigger Rebalance</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Visual Pipeline Animation Track -->
+        <div class="pipeline-track" id="pipeline-track">
+          <!-- Node 1 -->
+          <div class="pipe-node" id="node-accounts">
+            <div class="pipe-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="pipe-node-title">1,240 Client Accounts</div>
+            <div class="pipe-status" id="status-accounts">Holding States Ready</div>
+          </div>
+          <div class="pipe-connector"><div class="pipe-pulse" id="pulse-1"></div></div>
+
+          <!-- Node 2 -->
+          <div class="pipe-node" id="node-model">
+            <div class="pipe-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+            <div class="pipe-node-title">Target Model Matrix</div>
+            <div class="pipe-status" id="status-model">Weights Loaded</div>
+          </div>
+          <div class="pipe-connector"><div class="pipe-pulse" id="pulse-2"></div></div>
+
+          <!-- Node 3 -->
+          <div class="pipe-node" id="node-engine">
+            <div class="pipe-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg></div>
+            <div class="pipe-node-title">FastAPI &amp; Async Engine</div>
+            <div class="pipe-status" id="status-engine">Worker Idle</div>
+          </div>
+          <div class="pipe-connector"><div class="pipe-pulse" id="pulse-3"></div></div>
+
+          <!-- Node 4 -->
+          <div class="pipe-node" id="node-orders">
+            <div class="pipe-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1" ry="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg></div>
+            <div class="pipe-node-title">Validated Trade Proposals</div>
+            <div class="pipe-status" id="status-orders">Awaiting Execution</div>
+          </div>
+        </div>
+
+        <!-- Telemetry Benchmark Display (Manual vs Automated Flow) -->
+        <div class="sim-telemetry-grid">
+          <div class="telemetry-box legacy-box">
+            <span class="tele-label">Previous Manual Process</span>
+            <div class="tele-val tele-red" id="sim-legacy-time">~ 2+ Hours</div>
+            <span class="tele-note">Manual spreadsheet rebalancing &amp; reconciliation</span>
+          </div>
+          <div class="telemetry-box vs-box">
+            <span class="vs-text">VS</span>
+            <span class="vs-badge" id="sim-speedup-badge">&gt;99.9% Latency Cut</span>
+          </div>
+          <div class="telemetry-box optimized-box">
+            <span class="tele-label">Automated Rebalancing Flow</span>
+            <div class="tele-val tele-cyan" id="sim-engine-time">&lt; 2 Seconds</div>
+            <span class="tele-note">FastAPI + Async Worker &middot; 0% allocation mismatch</span>
+          </div>
+        </div>
+
+        <!-- Live Generated Orders Stream Log -->
+        <div class="sim-log-drawer">
+          <div class="sim-log-header">
+            <span>Live Execution Telemetry &middot; Atomic Trade Generation Log</span>
+            <span class="log-status-chip" id="log-status-chip">SYSTEM STANDBY</span>
+          </div>
+          <pre class="sim-log-content" id="sim-output-log"><code>// Click "Trigger Rebalance" to execute automated rebalancing flow...
+// Compares 1,240 account holdings against target models and generates atomic trade orders in &lt;2 seconds.</code></pre>
+        </div>
+      </div>
+
+      <!-- SIMULATOR 2: Agentic RAG Flow Visualizer -->
+      <div class="obs-workbench" id="sim-rag-panel" style="display: none;">
+        <div class="sim-header-bar">
+          <div>
+            <h3 class="sim-title">Agentic RAG Financial Document Intelligence Pipeline</h3>
+            <p class="sim-subtitle">Multimodal statement parsing, Maximal Marginal Relevance (MMR) retrieval, and real-time financial tool-calling.</p>
+          </div>
+          <div class="sim-controls-group">
+            <button class="btn btn-primary btn-sim-run" id="trigger-rag-sim-btn">
+              <span class="sim-btn-icon">&#9658;</span>
+              <span>Trace Sample Query Flow</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive Node Flow Diagram -->
+        <div class="rag-node-flow-container" id="rag-nodes-container">
+          <div class="rag-flow-card" data-step="1" id="rag-step-1">
+            <span class="rf-badge">STEP 01</span>
+            <h4>Brokerage PDF Statement</h4>
+            <p>Multimodal ingestion of heterogeneous statements with Llama APIs</p>
+            <span class="rf-metric">OCR Accuracy: 99.4%</span>
+          </div>
+          <div class="rag-flow-arrow">&rarr;</div>
+
+          <div class="rag-flow-card" data-step="2" id="rag-step-2">
+            <span class="rf-badge">STEP 02</span>
+            <h4>ChromaDB Vector MMR</h4>
+            <p>High-dimensional embeddings with k=6, fetch_k=20 context diversity</p>
+            <span class="rf-metric">Retrieval: 18ms</span>
+          </div>
+          <div class="rag-flow-arrow">&rarr;</div>
+
+          <div class="rag-flow-card" data-step="3" id="rag-step-3">
+            <span class="rf-badge">STEP 03</span>
+            <h4>Yahoo Finance &amp; FMP Tools</h4>
+            <p>Dynamic tool execution for real-time ticker prices, sector, and P/E ratios</p>
+            <span class="rf-metric">Redis Cache: 60% Latency Cut</span>
+          </div>
+          <div class="rag-flow-arrow">&rarr;</div>
+
+          <div class="rag-flow-card" data-step="4" id="rag-step-4">
+            <span class="rf-badge">STEP 04</span>
+            <h4>Streaming LLM Output</h4>
+            <p>Agentic response with source verification and automated portfolio valuation</p>
+            <span class="rf-metric">SSE Token Stream: 45 t/s</span>
+          </div>
+        </div>
+
+        <!-- Step Detail Box -->
+        <div class="rag-detail-box" id="rag-node-detail">
+          <div class="rdb-header">
+            <span class="rdb-title" id="rdb-title">Agentic RAG Telemetry Console</span>
+            <span class="rdb-chip" id="rdb-chip">READY</span>
+          </div>
+          <div class="rdb-content" id="rdb-content">
+            <p>Click "Trace Sample Query Flow" above or select any node to inspect telemetry, semantic chunking strategy, tool bindings, and Redis caching layers.</p>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ===== PROFESSIONAL EXPERIENCE (Hexaview Technologies) ===== -->
     <section class="section-container" id="experience">
       <div class="section-header">
         <span class="section-tag">PROFESSIONAL EXPERIENCE</span>
-        <h2 class="section-title">What I've <span class="text-gradient-cyan">Built at Work</span></h2>
+        <h2 class="section-title">Production Systems at <span class="text-gradient-cyan">Hexaview Technologies</span></h2>
         <p class="section-desc">
-          2+ years of engineering high-impact Python backends and AI systems at Hexaview Technologies, Noida.
+          2+ years engineering high-concurrency Python backends, high-speed financial rebalancing engines, and Agentic RAG platforms at Hexaview Technologies (Noida, India).
         </p>
       </div>
 
-      <div class="experience-timeline">
-
-        <div class="exp-card">
-          <div class="exp-header">
-            <div class="exp-company-info">
-              <div class="exp-company-logo">HT</div>
-              <div>
-                <h3 class="exp-role">Python Backend Engineer / AI Engineer</h3>
-                <p class="exp-company">Hexaview Technologies &nbsp;&middot;&nbsp; Noida, India</p>
-              </div>
-            </div>
-            <div class="exp-duration">
-              <span class="exp-badge">Current</span>
-              <span class="exp-dates">2024 &mdash; Present</span>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-company-info">
+            <div class="exp-company-logo">HT</div>
+            <div>
+              <h3 class="exp-role">Python Backend Engineer &middot; AI / LLM Engineer</h3>
+              <p class="exp-company">Hexaview Technologies &nbsp;&middot;&nbsp; Noida, India</p>
             </div>
           </div>
-
-          <div class="exp-projects-list">
-
-            <div class="exp-project">
-              <div class="ep-title-row">
-                <span class="ep-dot"></span>
-                <h4>Financial Document Intelligence &amp; Agentic AI Platform</h4>
-              </div>
-              <ul class="ep-points">
-                <li>Built a financial document intelligence backend using <strong>Python, FastAPI/Flask, Pandas, Redis, LangChain, OpenAI, and Llama APIs</strong> for multimodal parsing of text and image-based brokerage PDFs.</li>
-                <li>Designed an <strong>Agentic RAG chatbot</strong> with LangChain and OpenAI, using retrieval and custom tools to answer portfolio questions and perform financial analysis from document context.</li>
-                <li>Built a tool-driven <strong>report generation workflow</strong> combining parsed portfolio data with market data from Yahoo Finance and FMP (prices, sectors, valuations).</li>
-                <li>Implemented concurrent background processing, Redis caching, and automated multi-step tool execution &mdash; achieving <strong>60% lower report-generation latency</strong>.</li>
-              </ul>
-              <div class="ep-tech-pills">
-                <span>FastAPI</span><span>LangChain</span><span>LangGraph</span><span>OpenAI</span><span>Llama</span><span>Redis</span><span>Pandas</span>
-              </div>
-            </div>
-
-            <div class="exp-project">
-              <div class="ep-title-row">
-                <span class="ep-dot"></span>
-                <h4>SMA Portfolio Rebalancing Platform</h4>
-              </div>
-              <ul class="ep-points">
-                <li>Engineered a scalable <strong>multi-tenant backend</strong> with Python, FastAPI, PostgreSQL, SQLAlchemy, and Alembic, enforcing strict tenant-level data isolation.</li>
-                <li>Built the <strong>portfolio rebalancing engine</strong> to compare investment models with current holdings, generate buy/sell trade proposals, and integrate real-time market data APIs.</li>
-                <li>Automated trade generation &mdash; reduced rebalancing time from <strong>2+ hours to 2 seconds (&gt;99.9% reduction)</strong> while eliminating allocation errors entirely.</li>
-              </ul>
-              <div class="ep-tech-pills">
-                <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Alembic</span><span>REST APIs</span>
-              </div>
-            </div>
-
-            <div class="exp-project">
-              <div class="ep-title-row">
-                <span class="ep-dot"></span>
-                <h4>Multi-Tenant SSO &amp; Authentication Platform</h4>
-              </div>
-              <ul class="ep-points">
-                <li>Architected a centralized <strong>SSO backend</strong> using FastAPI, PostgreSQL, SQLAlchemy, JWT (RSA), Docker, and Pytest, supporting secure auth across financial applications.</li>
-                <li>Implemented multi-tenant data isolation, org/user onboarding, subscription lifecycle management, custom subdomain mapping, and <strong>fine-grained RBAC across 3 apps / 1000+ users</strong>.</li>
-              </ul>
-              <div class="ep-tech-pills">
-                <span>FastAPI</span><span>JWT (RSA)</span><span>PostgreSQL</span><span>Docker</span><span>Pytest</span><span>RBAC</span>
-              </div>
-            </div>
-
+          <div class="exp-duration">
+            <span class="exp-badge">Current Position</span>
+            <span class="exp-dates">2024 &mdash; Present</span>
           </div>
         </div>
 
+        <div class="exp-projects-list">
+
+          <!-- System 1: Financial Document Intelligence & Agentic AI Platform -->
+          <div class="exp-project">
+            <div class="ep-header-line">
+              <div class="ep-title-group">
+                <span class="ep-num">01</span>
+                <h4>Financial Document Intelligence &amp; Agentic AI Platform</h4>
+              </div>
+              <span class="ep-metric-pill">60% Latency Reduction</span>
+            </div>
+            <ul class="ep-points">
+              <li>Architected an enterprise document intelligence backend using <strong>Python, FastAPI, Redis, LangChain, and OpenAI</strong>, incorporating <strong>Llama APIs</strong> for multimodal text and image brokerage statement extraction.</li>
+              <li>Engineered an <strong>Agentic RAG chatbot</strong> that performs vector semantic retrieval over document context and dynamically triggers live financial data tools for portfolio valuation and holdings inquiries.</li>
+              <li>Integrated real-time market data from <strong>Yahoo Finance and Financial Modeling Prep (FMP) APIs</strong> for automated pricing, sector exposure, and valuation calculations.</li>
+              <li>Implemented <strong>concurrent background task queues, Redis response caching</strong>, and streaming API responses, slashing document analysis latency by <strong>60%</strong>.</li>
+            </ul>
+            <div class="ep-tech-pills">
+              <span>Python</span><span>FastAPI</span><span>Flask</span><span>LangChain</span><span>OpenAI</span><span>Llama APIs</span><span>Redis</span><span>Pandas</span><span>Yahoo Finance</span><span>FMP API</span>
+            </div>
+          </div>
+
+          <!-- System 2: SMA Portfolio Rebalancing Engine -->
+          <div class="exp-project">
+            <div class="ep-header-line">
+              <div class="ep-title-group">
+                <span class="ep-num">02</span>
+                <h4>SMA Portfolio Rebalancing Engine</h4>
+              </div>
+              <span class="ep-metric-pill metric-emerald">&gt;99.9% Runtime Reduction</span>
+            </div>
+            <ul class="ep-points">
+              <li>Engineered a high-performance <strong>multi-tenant backend</strong> using <strong>FastAPI, PostgreSQL, SQLAlchemy, and Alembic</strong>, enforcing strict tenant-level data isolation for financial client accounts.</li>
+              <li>Developed the high-speed <strong>rebalancing computation engine</strong> that reconciles model portfolios against client holdings, generates atomic buy/sell order sets, and validates trade parameters.</li>
+              <li>Automated end-to-end trade generation, slashing total rebalancing time from <strong>2+ hours down to 2 seconds (&gt;99.9% reduction)</strong> while achieving a <strong>100% elimination of allocation mismatch errors</strong>.</li>
+            </ul>
+            <div class="ep-tech-pills">
+              <span>Python</span><span>FastAPI</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Alembic</span><span>REST APIs</span><span>Async Trade Engine</span>
+            </div>
+          </div>
+
+          <!-- System 3: Centralized Multi-Tenant SSO Platform -->
+          <div class="exp-project">
+            <div class="ep-header-line">
+              <div class="ep-title-group">
+                <span class="ep-num">03</span>
+                <h4>Centralized Multi-Tenant SSO &amp; Authentication Platform</h4>
+              </div>
+              <span class="ep-metric-pill metric-indigo">1000+ Enterprise Users</span>
+            </div>
+            <ul class="ep-points">
+              <li>Architected a centralized, hardened <strong>SSO authentication microservice</strong> with <strong>FastAPI, PostgreSQL, SQLAlchemy, RSA-256 JWT, Docker, and Pytest</strong>, providing unified login across all company SaaS applications.</li>
+              <li>Engineered multi-tenant organization onboarding, automated subscription lifecycle management, and custom subdomain routing.</li>
+              <li>Enforced <strong>fine-grained Role-Based Access Control (RBAC)</strong> safeguarding <strong>3 production applications and 1000+ active enterprise users</strong>.</li>
+            </ul>
+            <div class="ep-tech-pills">
+              <span>FastAPI</span><span>JWT (RSA-256)</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Docker</span><span>Pytest</span><span>Multi-Tenant RBAC</span>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <!-- ===== PROJECTS SECTION ===== -->
+    <!-- ===== FEATURED PROJECTS ===== -->
     <section class="section-container" id="projects">
       <div class="section-header">
-        <span class="section-tag">PROJECTS</span>
-        <h2 class="section-title">Personal &amp; <span class="text-gradient-purple">Open Source Projects</span></h2>
+        <span class="section-tag">PRODUCTION PORTFOLIO</span>
+        <h2 class="section-title">Personal &amp; <span class="text-gradient-indigo">Engineering Projects</span></h2>
         <p class="section-desc">
-          Side projects I've designed, built, and deployed from scratch &mdash; spanning AI/LLM platforms to backend systems.
+          Key applications, AI platforms, and backend architectures I've designed, implemented, and deployed.
         </p>
 
         <div class="project-filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="ai">AI / LLM</button>
-          <button class="filter-btn" data-filter="backend">Backend</button>
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="ai">AI / LLM Systems</button>
+          <button class="filter-btn" data-filter="backend">Backend &amp; Microservices</button>
         </div>
       </div>
 
       <div class="projects-grid" id="projects-grid">
 
-        <article class="project-card featured-card" data-category="ai">
-          <div class="project-card-banner">
-            <div class="card-badge badge-cyan">AI / LLM &middot; Live Demo</div>
-            <div class="card-status-dot"></div>
+        <!-- Project 1: Coursify-AI (Resume Personal Project) -->
+        <article class="project-card" data-category="ai">
+          <div class="project-card-header">
+            <div class="card-badge badge-blue">AI / LLM &middot; Personal Project</div>
+            <div class="card-status-dot" title="Live &amp; Deployed"></div>
           </div>
-          <div class="project-card-content">
+          <div class="project-card-body">
             <h3 class="project-title">Coursify-AI &mdash; AI Course Generator</h3>
             <p class="project-desc">
-              Built and deployed an AI-powered learning platform that generates fully customized courses from user requirements in under 1 minute. Supports documents, audio, and video as input and transforms them into structured learning modules.
+              An AI-powered learning platform that autonomously generates complete, customized courses from raw documents, audio, and video inputs in under 1 minute.
             </p>
             <div class="project-highlights">
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Transforms documents, audio &amp; video into structured learning modules</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Personalized course creation from several hours &rarr; under 1 minute</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Live deployment with end-to-end AI workflow automation</div>
+              <div class="ph-item"><span class="ph-dot"></span> Ingests documents, audio, and video into structured study modules</div>
+              <div class="ph-item"><span class="ph-dot"></span> Slashed course generation time from hours to <strong>under 1 minute</strong></div>
+              <div class="ph-item"><span class="ph-dot"></span> FastAPI backend with Google Gemini and OpenAI integration</div>
             </div>
             <div class="tech-pills">
-              <span>FastAPI</span><span>Gemini</span><span>OpenAI</span><span>Python</span>
+              <span>FastAPI</span><span>Google Gemini</span><span>OpenAI</span><span>Python</span><span>Multimodal Parsing</span>
             </div>
             <div class="project-actions">
               <a href="https://github.com/Divyanshmishra101010" target="_blank" class="p-link" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>GitHub</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                <span>GitHub Repository</span>
+              </a>
+              <a href="https://coursify-by-ai.vercel.app/" target="_blank" class="p-link p-link-primary" rel="noopener noreferrer">
+                <span>Live Demo</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </div>
         </article>
 
+        <!-- Project 2: Agentic RAG Chatbot -->
         <article class="project-card" data-category="ai">
-          <div class="project-card-banner">
-            <div class="card-badge badge-purple">Agentic AI / RAG</div>
-            <div class="card-status-dot"></div>
+          <div class="project-card-header">
+            <span class="card-badge badge-purple">Hexaview Technologies &middot; Enterprise Client Platform</span>
+            <div class="card-status-dot" title="Production System"></div>
           </div>
-          <div class="project-card-content">
-            <h3 class="project-title">Agentic RAG Financial Chatbot</h3>
+          <div class="project-card-body">
+            <h3 class="project-title">Agentic RAG Financial Intelligence Chatbot</h3>
             <p class="project-desc">
-              Agentic RAG chatbot using LangChain and OpenAI that answers portfolio questions and performs financial analysis from brokerage documents. Uses custom tool-calling for real-time market data enrichment.
+              Conversational pipeline using LangChain, OpenAI, and ChromaDB that digests brokerage PDFs, provides source-cited responses, and triggers custom tools for live market pricing.
             </p>
             <div class="project-highlights">
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Hybrid retrieval with ChromaDB and semantic chunking</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Custom LangChain tools for Yahoo Finance &amp; FMP API</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> 60% reduction in report latency via Redis + async workers</div>
+              <div class="ph-item"><span class="ph-dot"></span> Maximal Marginal Relevance (MMR) retrieval over ChromaDB embeddings</div>
+              <div class="ph-item"><span class="ph-dot"></span> Custom tool bindings for Yahoo Finance &amp; Financial Modeling Prep</div>
+              <div class="ph-item"><span class="ph-dot"></span> 60% lower latency via Redis response caching and SSE token streaming</div>
             </div>
             <div class="tech-pills">
               <span>LangChain</span><span>OpenAI</span><span>ChromaDB</span><span>Redis</span><span>FastAPI</span>
             </div>
             <div class="project-actions">
-              <a href="https://github.com/Divyanshmishra101010" target="_blank" class="p-link" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>GitHub</span>
+              <span class="confidential-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Enterprise Client IP &middot; Confidential</span>
+              </span>
+              <a href="#observatory" class="p-link p-link-primary">
+                <span>Trace Pipeline Flow</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
         </article>
 
+        <!-- Project 3: SMA Portfolio Rebalancer -->
         <article class="project-card" data-category="backend">
-          <div class="project-card-banner">
-            <div class="card-badge badge-emerald">Python Backend</div>
-            <div class="card-status-dot"></div>
+          <div class="project-card-header">
+            <span class="card-badge badge-emerald">Hexaview Technologies &middot; Enterprise Client System</span>
+            <div class="card-status-dot" title="Production System"></div>
           </div>
-          <div class="project-card-content">
+          <div class="project-card-body">
             <h3 class="project-title">SMA Portfolio Rebalancing Engine</h3>
             <p class="project-desc">
-              Multi-tenant financial backend that compares investment models with current holdings and auto-generates buy/sell trade proposals with real-time market data integration.
+              High-concurrency investment engine engineered to reconcile target asset models against accounts and generate atomic buy/sell orders in sub-2 seconds.
             </p>
             <div class="project-highlights">
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Rebalancing: 2+ hours &rarr; 2 seconds (&gt;99.9% reduction)</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Strict tenant-level data isolation with SQLAlchemy &amp; Alembic</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> 100% elimination of allocation errors in automated trade generation</div>
+              <div class="ph-item"><span class="ph-dot"></span> Rebalancing runtime: <strong>2+ hours &rarr; 2 seconds (&gt;99.9% reduction)</strong></div>
+              <div class="ph-item"><span class="ph-dot"></span> Multi-tenant isolation with PostgreSQL, SQLAlchemy &amp; Alembic</div>
+              <div class="ph-item"><span class="ph-dot"></span> 100% elimination of allocation mismatch errors via automated validation</div>
             </div>
             <div class="tech-pills">
               <span>FastAPI</span><span>PostgreSQL</span><span>SQLAlchemy</span><span>Alembic</span><span>REST APIs</span>
             </div>
             <div class="project-actions">
-              <a href="https://github.com/Divyanshmishra101010" target="_blank" class="p-link" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>GitHub</span>
+              <span class="confidential-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Enterprise Client IP &middot; Confidential</span>
+              </span>
+              <a href="#observatory" class="p-link p-link-primary">
+                <span>Launch Rebalance Simulator</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
         </article>
 
+        <!-- Project 4: Centralized Multi-Tenant SSO -->
         <article class="project-card" data-category="backend">
-          <div class="project-card-banner">
-            <div class="card-badge badge-emerald">Python Backend</div>
-            <div class="card-status-dot"></div>
+          <div class="project-card-header">
+            <span class="card-badge badge-emerald">Hexaview Technologies &middot; Enterprise Auth Platform</span>
+            <div class="card-status-dot" title="Production System"></div>
           </div>
-          <div class="project-card-content">
-            <h3 class="project-title">Multi-Tenant SSO &amp; Auth Platform</h3>
+          <div class="project-card-body">
+            <h3 class="project-title">Centralized Multi-Tenant SSO Platform</h3>
             <p class="project-desc">
-              Centralized SSO backend supporting secure authentication for 3 financial applications and 1000+ users, with fine-grained RBAC, RSA JWT tokens, and custom subdomain mapping.
+              Single sign-on authentication service supporting 3 independent financial SaaS platforms, featuring RSA-signed JWT tokens, fine-grained RBAC, and automated tenant onboarding.
             </p>
             <div class="project-highlights">
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Serving 1000+ users across 3 multi-tenant applications</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> RSA-signed JWT with fine-grained RBAC &amp; subdomain mapping</div>
-              <div class="ph-item"><span class="ph-bullet">&#9658;</span> Dockerized deployment with full Pytest coverage</div>
+              <div class="ph-item"><span class="ph-dot"></span> Securing <strong>1000+ enterprise users</strong> across 3 multi-tenant applications</div>
+              <div class="ph-item"><span class="ph-dot"></span> RSA-256 JWT validation, fine-grained role permissions &amp; subdomain routing</div>
+              <div class="ph-item"><span class="ph-dot"></span> Dockerized microservice architecture with complete Pytest test coverage</div>
             </div>
             <div class="tech-pills">
               <span>FastAPI</span><span>JWT (RSA)</span><span>PostgreSQL</span><span>Docker</span><span>Pytest</span><span>RBAC</span>
             </div>
             <div class="project-actions">
-              <a href="https://github.com/Divyanshmishra101010" target="_blank" class="p-link" rel="noopener noreferrer">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                <span>GitHub</span>
+              <span class="confidential-badge">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                <span>Enterprise Client IP &middot; Confidential</span>
+              </span>
+              <a href="#code-blueprint" class="p-link p-link-primary">
+                <span>Inspect Auth Blueprint</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
               </a>
             </div>
           </div>
@@ -373,202 +704,396 @@
       </div>
     </section>
 
-    <!-- ===== TECH STACK / SKILLS ===== -->
+    <!-- ===== TECHNICAL SKILLS MATRIX ===== -->
     <section class="section-container" id="skills">
       <div class="section-header">
-        <span class="section-tag">TECHNICAL SKILLS</span>
-        <h2 class="section-title">My <span class="text-gradient-cyan">Tech Stack</span></h2>
+        <span class="section-tag">CORE COMPETENCIES</span>
+        <h2 class="section-title">Production <span class="text-gradient-cyan">Tech Stack &amp; Skills</span></h2>
         <p class="section-desc">
-          Tools and technologies I use daily to ship production-grade AI and backend systems.
+          Core technologies, frameworks, databases, and infrastructure I leverage to build scalable systems.
         </p>
       </div>
 
       <div class="skills-matrix-grid">
 
+        <!-- Category 1: AI / LLM -->
         <div class="skill-category-card">
           <div class="skill-cat-header">
-            <div class="cat-icon cat-icon-cyan">&#129302;</div>
+            <div class="cat-icon cat-icon-purple"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
             <div>
-              <h3>AI / LLM</h3>
-              <p>Agents, RAG &amp; GenAI</p>
+              <h3>AI / LLM Engineering</h3>
+              <p>Autonomous Agents &amp; RAG</p>
             </div>
           </div>
-          <div class="skill-items-list">
-            <div class="skill-badge">LangChain <span>Advanced</span></div>
-            <div class="skill-badge">LangGraph <span>Advanced</span></div>
-            <div class="skill-badge">LangSmith <span>Proficient</span></div>
-            <div class="skill-badge">RAG Pipelines <span>Advanced</span></div>
-            <div class="skill-badge">AI Agents <span>Advanced</span></div>
-            <div class="skill-badge">OpenAI API <span>Advanced</span></div>
-            <div class="skill-badge">Gemini API <span>Proficient</span></div>
-            <div class="skill-badge">Prompt Engineering <span>Advanced</span></div>
+          <div class="skill-tags-wrap">
+            <span class="skill-pill">AI Agents</span>
+            <span class="skill-pill">RAG Pipelines</span>
+            <span class="skill-pill">LangChain</span>
+            <span class="skill-pill">LangGraph</span>
+            <span class="skill-pill">LangSmith</span>
+            <span class="skill-pill">OpenAI API</span>
+            <span class="skill-pill">Google Gemini</span>
+            <span class="skill-pill">Vector Embeddings</span>
+            <span class="skill-pill">Prompt Engineering</span>
           </div>
         </div>
 
+        <!-- Category 2: Backend Architecture -->
         <div class="skill-category-card">
           <div class="skill-cat-header">
-            <div class="cat-icon cat-icon-purple">&#128013;</div>
+            <div class="cat-icon cat-icon-blue"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
             <div>
-              <h3>Python Backend</h3>
-              <p>APIs, Async &amp; Microservices</p>
+              <h3>Python &amp; Backend</h3>
+              <p>High-Throughput APIs &amp; Async</p>
             </div>
           </div>
-          <div class="skill-items-list">
-            <div class="skill-badge">Python <span>Mastery</span></div>
-            <div class="skill-badge">FastAPI <span>Advanced</span></div>
-            <div class="skill-badge">Flask <span>Advanced</span></div>
-            <div class="skill-badge">Async Programming <span>Advanced</span></div>
-            <div class="skill-badge">REST APIs <span>Advanced</span></div>
-            <div class="skill-badge">Microservices <span>Proficient</span></div>
-            <div class="skill-badge">JWT Auth <span>Advanced</span></div>
-            <div class="skill-badge">Background Tasks <span>Advanced</span></div>
+          <div class="skill-tags-wrap">
+            <span class="skill-pill">Python (Mastery)</span>
+            <span class="skill-pill">FastAPI</span>
+            <span class="skill-pill">Flask</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">Asyncio</span>
+            <span class="skill-pill">Background Tasks</span>
+            <span class="skill-pill">Microservices</span>
+            <span class="skill-pill">JWT &amp; RBAC</span>
           </div>
         </div>
 
+        <!-- Category 3: Databases & ORM -->
         <div class="skill-category-card">
           <div class="skill-cat-header">
-            <div class="cat-icon cat-icon-emerald">&#128451;</div>
+            <div class="cat-icon cat-icon-emerald"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg></div>
             <div>
-              <h3>Databases</h3>
-              <p>SQL, NoSQL &amp; Vector</p>
+              <h3>Databases &amp; Memory</h3>
+              <p>Relational, Cache &amp; Vector</p>
             </div>
           </div>
-          <div class="skill-items-list">
-            <div class="skill-badge">PostgreSQL <span>Advanced</span></div>
-            <div class="skill-badge">Redis <span>Advanced</span></div>
-            <div class="skill-badge">ChromaDB <span>Advanced</span></div>
-            <div class="skill-badge">SQLAlchemy <span>Advanced</span></div>
-            <div class="skill-badge">Alembic <span>Advanced</span></div>
-            <div class="skill-badge">SQL <span>Advanced</span></div>
+          <div class="skill-tags-wrap">
+            <span class="skill-pill">PostgreSQL</span>
+            <span class="skill-pill">Redis (Cache/PubSub)</span>
+            <span class="skill-pill">ChromaDB (Vector)</span>
+            <span class="skill-pill">SQLAlchemy ORM</span>
+            <span class="skill-pill">Alembic Migrations</span>
+            <span class="skill-pill">Complex SQL Optimization</span>
           </div>
         </div>
 
+        <!-- Category 4: Cloud & DevOps -->
         <div class="skill-category-card">
           <div class="skill-cat-header">
-            <div class="cat-icon cat-icon-orange">&#9729;</div>
+            <div class="cat-icon cat-icon-orange"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg></div>
             <div>
-              <h3>Cloud / DevOps</h3>
-              <p>AWS, Docker &amp; CI/CD</p>
+              <h3>Cloud &amp; DevOps</h3>
+              <p>AWS, Containers &amp; Testing</p>
             </div>
           </div>
-          <div class="skill-items-list">
-            <div class="skill-badge">AWS Lambda <span>Proficient</span></div>
-            <div class="skill-badge">AWS S3 / EC2 / RDS <span>Proficient</span></div>
-            <div class="skill-badge">API Gateway <span>Proficient</span></div>
-            <div class="skill-badge">SQS / SNS <span>Proficient</span></div>
-            <div class="skill-badge">CloudWatch &amp; IAM <span>Proficient</span></div>
-            <div class="skill-badge">Docker <span>Advanced</span></div>
-            <div class="skill-badge">Git &amp; GitHub <span>Advanced</span></div>
+          <div class="skill-tags-wrap">
+            <span class="skill-pill">AWS Lambda</span>
+            <span class="skill-pill">AWS S3 / RDS / EC2</span>
+            <span class="skill-pill">API Gateway</span>
+            <span class="skill-pill">CloudWatch</span>
+            <span class="skill-pill">IAM</span>
+            <span class="skill-pill">SQS &amp; SNS</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Git &amp; GitHub</span>
+            <span class="skill-pill">Pytest &amp; CI/CD</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- ===== CODE PLAYGROUND ===== -->
-    <section class="section-container" id="terminal-playground">
+    <!-- ===== IN-PAGE RESUME PDF VIEWER (Direct On-Website PDF View + Download) ===== -->
+    <section class="section-container" id="resume">
       <div class="section-header">
-        <span class="section-tag">CODE SNAPSHOT</span>
-        <h2 class="section-title">Production Python <span class="text-gradient-purple">Blueprint</span></h2>
+        <span class="section-tag">OFFICIAL RESUME</span>
+        <h2 class="section-title">Curriculum <span class="text-gradient-cyan">Vitae &amp; Credentials</span></h2>
         <p class="section-desc">
-          Real-world inspired snippets showing how I build FastAPI endpoints with LangChain RAG pipelines in production.
+          View the complete verified resume right on this page, or download a copy directly from the webpage.
         </p>
       </div>
 
-      <div class="code-showcase-box">
+      <div class="resume-viewer-container">
+
+        <!-- Executive Resume Toolbar -->
+        <div class="resume-toolbar">
+          <div class="resume-doc-meta">
+            <div class="doc-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            </div>
+            <div>
+              <div class="resume-doc-title">Divyansh_Mishra_Resume.pdf</div>
+              <div class="resume-doc-sub">Official Resume &middot; Python Backend &amp; AI Engineer &middot; Hexaview Technologies</div>
+            </div>
+          </div>
+
+          <div class="resume-actions-group">
+            <!-- Direct Download Button (Webpage-based force download) -->
+            <a href="./Divyansh_Mishra_Resume.pdf" download="Divyansh_Mishra_Resume.pdf" class="resume-btn resume-btn-primary js-download-resume" id="toolbar-download-resume-btn" title="Download Divyansh Mishra Resume (PDF)">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <span>Download PDF</span>
+            </a>
+
+            <!-- Open in New Tab -->
+            <a href="./Divyansh_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="resume-btn resume-btn-secondary" title="Open PDF in new browser tab">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <span>Open in New Tab</span>
+            </a>
+
+            <!-- Full-Screen Modal Trigger -->
+            <button class="resume-btn resume-btn-outline" id="fullscreen-resume-btn" title="Expand to Fullscreen View">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+              <span>Fullscreen</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Embedded Interactive PDF Window -->
+        <div class="resume-frame-wrapper" id="resume-frame">
+          <object data="./Divyansh_Mishra_Resume.pdf#toolbar=1&navpanes=0&view=FitH" type="application/pdf" class="resume-pdf-frame" id="resume-pdf-frame">
+            <iframe src="./Divyansh_Mishra_Resume.pdf#toolbar=1&navpanes=0&view=FitH" class="resume-pdf-frame" title="Divyansh Mishra Official Resume PDF">
+              <!-- Fallback Content for devices that do not support inline PDF viewing -->
+              <div class="pdf-fallback-container">
+                <div class="pdf-fallback-icon">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <h3>Divyansh Mishra &mdash; Official Resume</h3>
+                <p>Your browser doesn't have an inline PDF plugin enabled, but you can view and download the official document directly:</p>
+                <div class="fallback-btn-row">
+                  <a href="./Divyansh_Mishra_Resume.pdf" download="Divyansh_Mishra_Resume.pdf" class="btn btn-primary js-download-resume">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Download Official PDF</span>
+                  </a>
+                  <a href="./Divyansh_Mishra_Resume.pdf" target="_blank" class="btn btn-secondary">
+                    <span>Open in New Browser Window</span>
+                  </a>
+                </div>
+              </div>
+            </iframe>
+          </object>
+        </div>
+
+        <!-- Resume Quick Summary Badges -->
+        <div class="resume-footer-meta">
+          <div class="rf-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>Verified 2+ Years Experience at Hexaview Technologies</span>
+          </div>
+          <div class="rf-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>B.Tech CSE Galgotias University &middot; 8.7 CGPA</span>
+          </div>
+          <div class="rf-item">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            <span>700+ LeetCode Solved &middot; 1800+ Contest Rating</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== EDUCATION & PROBLEM SOLVING ===== -->
+    <section class="section-container" id="education">
+      <div class="section-header">
+        <span class="section-tag">ACADEMIC &amp; ALGORITHMS</span>
+        <h2 class="section-title">Education &amp; <span class="text-gradient-cyan">Problem Solving</span></h2>
+        <p class="section-desc">
+          Computer science foundations paired with competitive programming mastery.
+        </p>
+      </div>
+
+      <div class="edu-grid">
+
+        <!-- Education Card -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div class="edu-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </div>
+            <div>
+              <h3 class="edu-card-title">Bachelor of Technology in Computer Science</h3>
+              <p class="edu-card-sub">Galgotias University &nbsp;&middot;&nbsp; 2020 &mdash; 2024</p>
+            </div>
+          </div>
+          <div class="edu-metrics-row">
+            <div class="em-item">
+              <span class="em-val">8.7 / 10</span>
+              <span class="em-label">Cumulative CGPA</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="em-item">
+              <span class="em-val">B.Tech</span>
+              <span class="em-label">Computer Science</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="em-item">
+              <span class="em-val">2020 &ndash; 2024</span>
+              <span class="em-label">Tenure</span>
+            </div>
+          </div>
+          <ul class="edu-desc-list">
+            <li>Core coursework in Distributed Systems, Data Structures &amp; Algorithms, Database Management, and Operating Systems.</li>
+            <li>Strong foundation in relational schema design, network protocols, concurrent programming, and software engineering principles.</li>
+          </ul>
+        </div>
+
+        <!-- LeetCode & Problem Solving Card -->
+        <div class="edu-card">
+          <div class="edu-card-header">
+            <div class="edu-icon-box">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div>
+              <h3 class="edu-card-title">Competitive Programming &amp; DSA</h3>
+              <p class="edu-card-sub">LeetCode Profile &nbsp;&middot;&nbsp; Consistent Practice</p>
+            </div>
+          </div>
+          <div class="edu-metrics-row">
+            <div class="em-item">
+              <span class="em-val">700+</span>
+              <span class="em-label">Problems Solved</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="em-item">
+              <span class="em-val">1800+</span>
+              <span class="em-label">Contest Rating</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="em-item">
+              <span class="em-val">Top 7%</span>
+              <span class="em-label">Global Standing</span>
+            </div>
+          </div>
+          <ul class="edu-desc-list">
+            <li>Extensive problem-solving across Dynamic Programming, Graph Traversals, Sliding Window, Trees, and Heaps.</li>
+            <li>Deep intuition for computational complexity, optimizing memory footprints, and time constraints in production backends.</li>
+          </ul>
+          <div class="edu-card-footer">
+            <a href="https://leetcode.com/u/Divyansh_Mishra10/" target="_blank" class="p-link" rel="noopener noreferrer">
+              <span>View LeetCode Profile</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CODE BLUEPRINT (Clean Architecture Spotlight) ===== -->
+    <section class="section-container" id="code-blueprint">
+      <div class="blueprint-header-row">
+        <div>
+          <span class="section-tag">ARCHITECTURE SPOTLIGHT</span>
+          <h2 class="section-title">Production Python <span class="text-gradient-indigo">Blueprint</span></h2>
+          <p class="section-desc">
+            Production-grade patterns for high-concurrency FastAPI backends, LangChain RAG pipelines, and market data tools.
+          </p>
+        </div>
+        <button class="btn btn-outline" id="toggle-blueprint-btn">
+          <span id="blueprint-toggle-text">Show Code Blueprint</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+
+      <div class="code-showcase-box" id="blueprint-box" style="display: none;">
         <div class="code-header">
           <div class="code-tabs">
-            <button class="code-tab active" data-tab="rag-py">rag_chain.py</button>
+            <button class="code-tab active" data-tab="rag-py">rag_pipeline.py</button>
             <button class="code-tab" data-tab="fastapi-py">main.py (FastAPI)</button>
             <button class="code-tab" data-tab="schema-py">schemas.py (Pydantic)</button>
           </div>
-          <button class="copy-code-btn" id="copy-code-btn" title="Copy code snippet">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <button class="copy-code-btn" id="copy-code-btn" title="Copy code snippet to clipboard">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
             <span id="copy-btn-text">Copy Code</span>
           </button>
         </div>
 
         <div class="code-content-wrap">
           <pre class="code-block active" id="code-rag-py"><code><span class="kw">from</span> langchain.chains <span class="kw">import</span> RetrievalQAWithSourcesChain
-<span class="kw">from</span> langchain.chat_models <span class="kw">import</span> ChatOpenAI
-<span class="kw">from</span> langchain.vectorstores <span class="kw">import</span> Chroma
-<span class="kw">from</span> langchain.embeddings <span class="kw">import</span> OpenAIEmbeddings
+<span class="kw">from</span> langchain_openai <span class="kw">import</span> ChatOpenAI, OpenAIEmbeddings
+<span class="kw">from</span> langchain_community.vectorstores <span class="kw">import</span> Chroma
 <span class="kw">from</span> langchain.tools <span class="kw">import</span> Tool
 
-<span class="cmt"># Initialize embedding model and vector store (ChromaDB)</span>
+<span class="cmt"># 1. High-dimensional embedding engine and ChromaDB vector store</span>
 embeddings = OpenAIEmbeddings(model=<span class="str">"text-embedding-3-large"</span>)
 vectordb = Chroma(persist_directory=<span class="str">"./chroma_db"</span>, embedding_function=embeddings)
 
-<span class="cmt"># MMR retriever for diverse, high-quality context chunks</span>
+<span class="cmt"># 2. Maximal Marginal Relevance (MMR) retriever for high context diversity</span>
 retriever = vectordb.as_retriever(
     search_type=<span class="str">"mmr"</span>,
     search_kwargs={<span class="str">"k"</span>: 6, <span class="str">"fetch_k"</span>: 20}
 )
 
-<span class="cmt"># Custom tool: Yahoo Finance + FMP real-time market data</span>
-<span class="kw">def</span> <span class="fn">fetch_market_data</span>(ticker: str) -> dict:
-    <span class="str">"""Fetches real-time price, sector, valuation from yfinance."""</span>
+<span class="cmt"># 3. Custom Tool Execution: Live Yahoo Finance &amp; FMP market intelligence</span>
+<span class="kw">def</span> <span class="fn">fetch_security_metrics</span>(ticker: str) -> dict:
+    <span class="str">"""Fetches real-time price, sector, and valuation from financial APIs."""</span>
     <span class="kw">import</span> yfinance <span class="kw">as</span> yf
-    <span class="kw">return</span> yf.Ticker(ticker).info
+    stock = yf.Ticker(ticker)
+    <span class="kw">return</span> {
+        <span class="str">"price"</span>: stock.info.get(<span class="str">"currentPrice"</span>),
+        <span class="str">"sector"</span>: stock.info.get(<span class="str">"sector"</span>),
+        <span class="str">"pe_ratio"</span>: stock.info.get(<span class="str">"trailingPE"</span>)
+    }
 
 market_tool = Tool(
-    name=<span class="str">"MarketDataFetcher"</span>,
-    func=fetch_market_data,
-    description=<span class="str">"Get real-time financial data for a stock ticker."</span>
+    name=<span class="str">"MarketDataTool"</span>,
+    func=fetch_security_metrics,
+    description=<span class="str">"Retrieve real-time financial security metrics for a given ticker."</span>
 )
 
+<span class="cmt"># 4. Agentic QA Chain with streaming LLM runtime</span>
 llm = ChatOpenAI(model=<span class="str">"gpt-4o"</span>, temperature=0.1, streaming=<span class="kw">True</span>)
 rag_chain = RetrievalQAWithSourcesChain.from_chain_type(
     llm=llm, retriever=retriever, return_source_documents=<span class="kw">True</span>
 )</code></pre>
 
-          <pre class="code-block" id="code-fastapi-py"><code><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, BackgroundTasks, Depends
+          <pre class="code-block" id="code-fastapi-py"><code><span class="kw">from</span> fastapi <span class="kw">import</span> FastAPI, BackgroundTasks, Depends, HTTPException
 <span class="kw">from</span> fastapi.responses <span class="kw">import</span> StreamingResponse
 <span class="kw">from</span> redis.asyncio <span class="kw">import</span> Redis
 <span class="kw">import</span> hashlib, json
 
-app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<span class="str">"2.0.0"</span>)
+app = FastAPI(title=<span class="str">"Financial AI &amp; Portfolio Engine"</span>, version=<span class="str">"2.0.0"</span>)
 
-<span class="dec">@app.post</span>(<span class="str">"/api/v1/portfolio/chat"</span>)
-<span class="kw">async def</span> <span class="fn">portfolio_chat</span>(req: ChatRequest, redis: Redis = Depends(get_redis)):
-    <span class="str">"""Agentic RAG with Redis semantic cache and SSE streaming."""</span>
-    cache_key = hashlib.md5(req.query.encode()).hexdigest()
+<span class="dec">@app.post</span>(<span class="str">"/api/v1/portfolio/chat/stream"</span>)
+<span class="kw">async def</span> <span class="fn">stream_portfolio_analysis</span>(req: ChatRequest, redis: Redis = Depends(get_redis)):
+    <span class="str">"""Agentic RAG endpoint with Redis semantic cache &amp; SSE token streaming."""</span>
+    cache_key = f<span class="str">"rag:{req.tenant_id}:{hashlib.md5(req.query.encode()).hexdigest()}"</span>
     cached = <span class="kw">await</span> redis.get(cache_key)
     <span class="kw">if</span> cached:
         <span class="kw">return</span> json.loads(cached)
 
-    <span class="kw">async def</span> <span class="fn">stream_tokens</span>():
+    <span class="kw">async def</span> <span class="fn">token_generator</span>():
         <span class="kw">async for</span> chunk <span class="kw">in</span> rag_chain.astream({<span class="str">"question"</span>: req.query}):
             <span class="kw">yield</span> f<span class="str">"data: {chunk}\n\n"</span>
 
-    <span class="kw">return</span> StreamingResponse(stream_tokens(), media_type=<span class="str">"text/event-stream"</span>)
+    <span class="kw">return</span> StreamingResponse(token_generator(), media_type=<span class="str">"text/event-stream"</span>)
 
 <span class="dec">@app.post</span>(<span class="str">"/api/v1/portfolio/rebalance"</span>)
 <span class="kw">async def</span> <span class="fn">trigger_rebalance</span>(req: RebalanceRequest, bg: BackgroundTasks):
-    <span class="str">"""Async rebalancing trigger. 2+ hrs reduced to 2 seconds."""</span>
-    bg.add_task(run_rebalancing_engine, req.tenant_id, req.model_id)
-    <span class="kw">return</span> {<span class="str">"status"</span>: <span class="str">"queued"</span>, <span class="str">"eta_seconds"</span>: 2}</code></pre>
+    <span class="str">"""Async portfolio rebalancer: slashed runtime from 2+ hours to 2 seconds."""</span>
+    bg.add_task(rebalance_worker, req.tenant_id, req.model_id, req.account_ids)
+    <span class="kw">return</span> {<span class="str">"status"</span>: <span class="str">"queued"</span>, <span class="str">"eta_seconds"</span>: 2, <span class="str">"tenant_id"</span>: req.tenant_id}</code></pre>
 
           <pre class="code-block" id="code-schema-py"><code><span class="kw">from</span> pydantic <span class="kw">import</span> BaseModel, Field
 <span class="kw">from</span> typing <span class="kw">import</span> Literal
 <span class="kw">from</span> uuid <span class="kw">import</span> UUID
 
 <span class="kw">class</span> <span class="cls">ChatRequest</span>(BaseModel):
-    query: str = Field(..., min_length=3)
-    session_id: UUID
     tenant_id: str
+    session_id: UUID
+    query: str = Field(..., min_length=3, description=<span class="str">"User prompt or question"</span>)
     temperature: float = Field(default=0.1, ge=0.0, le=1.0)
 
 <span class="kw">class</span> <span class="cls">RebalanceRequest</span>(BaseModel):
     tenant_id: str
     model_id: str
-    account_ids: list[str]
+    account_ids: list[str] = Field(..., min_items=1)
     strategy: Literal[<span class="str">"aggressive"</span>, <span class="str">"moderate"</span>, <span class="str">"conservative"</span>] = <span class="str">"moderate"</span>
 
 <span class="kw">class</span> <span class="cls">TradeProposal</span>(BaseModel):
     ticker: str
     action: Literal[<span class="str">"BUY"</span>, <span class="str">"SELL"</span>]
-    quantity: float
+    quantity: float = Field(..., gt=0)
     estimated_value: float
     rebalance_delta_pct: float = Field(ge=-100.0, le=100.0)</code></pre>
         </div>
@@ -582,43 +1107,49 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
           <span class="section-tag">ABOUT ME</span>
           <h2 class="section-title">Engineering <span class="text-gradient-cyan">Reliable Systems</span>, One Endpoint at a Time</h2>
           <p class="about-p">
-            I'm a <strong>Python Backend &amp; AI/LLM Engineer</strong> with 2+ years of professional experience at Hexaview Technologies. My work lives at the intersection of <strong>scalable backend architecture and intelligent AI automation</strong> &mdash; from high-concurrency REST APIs to Agentic RAG pipelines powering real financial applications.
+            I'm a <strong>Python Backend Engineer &amp; AI / LLM Engineer</strong> with 2+ years of hands-on production experience at Hexaview Technologies. My work bridges <strong>scalable backend architectures</strong> and <strong>intelligent AI agentic pipelines</strong> &mdash; transforming complex financial workflows into automated, high-speed microservices.
           </p>
           <p class="about-p">
-            I hold a <strong>B.Tech in Computer Science from Galgotias University (CGPA: 8.7/10)</strong> and I actively sharpen my problem-solving skills with <strong>700+ LeetCode problems solved</strong> and a contest rating above <strong>1800</strong>.
+            Whether it's slashing rebalancing runtimes from hours down to seconds, architecting multi-tenant authentication systems for thousands of users, or building Agentic RAG assistants that analyze multimodal financial documents, I prioritize clean abstractions, strict data isolation, and measurable performance gains.
           </p>
 
           <div class="about-highlights-list">
             <div class="about-hl-item">
-              <span class="hl-icon">&#9889;</span>
+              <div class="hl-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              </div>
               <div>
-                <strong>Performance-first Mindset</strong>
-                <p>Cut trade rebalancing from 2 hours to 2 seconds. Reduced report generation latency by 60% with Redis caching and async background processing.</p>
+                <strong>Performance &amp; Latency Focused</strong>
+                <p>Reduced financial trade rebalancing from 2+ hours to 2 seconds (&gt;99.9% reduction) and lowered document report latency by 60% with Redis caching and asynchronous queues.</p>
               </div>
             </div>
             <div class="about-hl-item">
-              <span class="hl-icon">&#129504;</span>
+              <div class="hl-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
               <div>
-                <strong>AI that Delivers Real Value</strong>
-                <p>I build Agentic systems with proper tool-calling, retrieval pipelines, guardrails, and streaming that production users depend on daily &mdash; not just LLM wrappers.</p>
+                <strong>Production-Grade AI Agents</strong>
+                <p>I build agentic workflows with proper tool-calling, semantic chunking, guardrails, and streaming that production end-users rely on daily.</p>
               </div>
             </div>
           </div>
         </div>
 
         <div class="about-card-col">
-          <div class="profile-glass-card">
+          <div class="profile-card">
             <div class="profile-header">
               <div class="profile-avatar">
-                <span class="avatar-text">DM</span>
-                <span class="avatar-badge">&#9889;</span>
+                <span>DM</span>
+                <span class="avatar-badge">
+                  <svg width="8" height="8" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>
+                </span>
               </div>
               <div class="profile-info">
                 <h3>Divyansh Mishra</h3>
-                <p>Python Backend &amp; AI/LLM Engineer</p>
+                <p>Python Backend &amp; AI Engineer</p>
                 <div class="profile-location">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                  <span>Noida, India &middot; Open to Remote</span>
+                  <span>Noida, India &nbsp;&middot;&nbsp; Open to Remote</span>
                 </div>
               </div>
             </div>
@@ -626,7 +1157,7 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
             <div class="profile-stats">
               <div class="p-stat">
                 <span class="p-stat-val">2+</span>
-                <span class="p-stat-label">Years Exp.</span>
+                <span class="p-stat-label">Years Exp</span>
               </div>
               <div class="p-stat">
                 <span class="p-stat-val">700+</span>
@@ -639,17 +1170,21 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
             </div>
 
             <div class="profile-links">
+              <button class="p-link-btn p-link-highlight" id="profile-resume-btn">
+                <span>View / Download Official Resume (PDF)</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              </button>
               <a href="https://github.com/Divyanshmishra101010" target="_blank" class="p-link-btn" rel="noopener noreferrer">
-                <span>GitHub &middot; Divyanshmishra101010</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                <span>GitHub Profile &middot; Divyanshmishra101010</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
-              <a href="https://linkedin.com/in/divyansh-mishra" target="_blank" class="p-link-btn" rel="noopener noreferrer">
-                <span>LinkedIn Profile</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <a href="https://www.linkedin.com/in/divyansh-mishra-101764207/" target="_blank" class="p-link-btn" rel="noopener noreferrer">
+                <span>LinkedIn Profile &middot; in/divyansh-mishra-101764207</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
-              <a href="https://leetcode.com/u/divyansh_mishra" target="_blank" class="p-link-btn" rel="noopener noreferrer">
-                <span>LeetCode &middot; 700+ Problems &middot; 1800+ Rating</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              <a href="https://leetcode.com/u/Divyansh_Mishra10/" target="_blank" class="p-link-btn" rel="noopener noreferrer">
+                <span>LeetCode &middot; 700+ Solved &middot; 1800+ Rating</span>
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
               </a>
             </div>
           </div>
@@ -661,39 +1196,48 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
     <section class="section-container" id="contact">
       <div class="contact-box">
         <div class="contact-header">
-          <span class="section-tag">LET'S CONNECT</span>
+          <span class="section-tag">GET IN TOUCH</span>
           <h2 class="section-title">Open to <span class="text-gradient-cyan">Opportunities &amp; Collaboration</span></h2>
           <p class="section-desc">
-            Interested in backend or AI/LLM engineering roles, freelance projects, or technical discussions? Let's talk.
+            Interested in discussing backend architecture, AI/LLM roles, consulting, or technical partnerships? Reach out directly.
           </p>
         </div>
 
         <div class="contact-channels-grid">
           <div class="contact-channel-card" id="email-card">
-            <div class="channel-icon">&#9993;</div>
+            <div class="channel-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
             <div class="channel-info">
               <h4>Direct Email</h4>
               <p class="channel-val" id="email-text">divyanshmishra101010@gmail.com</p>
             </div>
-            <button class="channel-btn" id="copy-email-btn" title="Copy Email">
+            <button class="channel-btn" id="copy-email-btn" title="Copy Email to Clipboard">
               <span>Copy</span>
             </button>
           </div>
 
-          <a href="https://github.com/Divyanshmishra101010" target="_blank" class="contact-channel-card" rel="noopener noreferrer">
-            <div class="channel-icon">&#128025;</div>
+          <a href="tel:+917992010347" class="contact-channel-card">
+            <div class="channel-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
             <div class="channel-info">
-              <h4>GitHub</h4>
-              <p class="channel-val">Divyanshmishra101010</p>
+              <h4>Phone</h4>
+              <p class="channel-val">+91-7992010347</p>
             </div>
             <span class="channel-action-arrow">&#8599;</span>
           </a>
 
-          <a href="https://linkedin.com/in/divyansh-mishra" target="_blank" class="contact-channel-card" rel="noopener noreferrer">
-            <div class="channel-icon">&#128188;</div>
+          <a href="https://www.linkedin.com/in/divyansh-mishra-101764207/" target="_blank" class="contact-channel-card" rel="noopener noreferrer">
+            <div class="channel-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg></div>
             <div class="channel-info">
               <h4>LinkedIn</h4>
-              <p class="channel-val">in/divyansh-mishra</p>
+              <p class="channel-val">in/divyansh-mishra-101764207</p>
+            </div>
+            <span class="channel-action-arrow">&#8599;</span>
+          </a>
+
+          <a href="https://github.com/Divyanshmishra101010" target="_blank" class="contact-channel-card" rel="noopener noreferrer">
+            <div class="channel-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg></div>
+            <div class="channel-info">
+              <h4>GitHub</h4>
+              <p class="channel-val">Divyanshmishra101010</p>
             </div>
             <span class="channel-action-arrow">&#8599;</span>
           </a>
@@ -703,24 +1247,24 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
           <div class="form-row">
             <div class="form-group">
               <label for="form-name">Your Name</label>
-              <input type="text" id="form-name" required placeholder="e.g. Rahul Sharma">
+              <input type="text" id="form-name" required placeholder="e.g. Alex Morgan">
             </div>
             <div class="form-group">
               <label for="form-email">Your Email</label>
-              <input type="email" id="form-email" required placeholder="e.g. rahul@company.com">
+              <input type="email" id="form-email" required placeholder="e.g. alex@company.com">
             </div>
           </div>
           <div class="form-group">
-            <label for="form-subject">Topic</label>
-            <input type="text" id="form-subject" required placeholder="e.g. Backend Role / Freelance AI Project / Tech Discussion">
+            <label for="form-subject">Subject</label>
+            <input type="text" id="form-subject" required placeholder="e.g. Senior Python Backend / AI Engineer Opportunity">
           </div>
           <div class="form-group">
             <label for="form-message">Message</label>
-            <textarea id="form-message" rows="4" required placeholder="Tell me about the role, project, or idea..."></textarea>
+            <textarea id="form-message" rows="4" required placeholder="Tell me about the role, project, or collaboration opportunity..."></textarea>
           </div>
           <button type="submit" class="btn btn-primary form-submit-btn">
             <span>Send Message</span>
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
           </button>
         </form>
 
@@ -729,12 +1273,73 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
 
   </main>
 
+  <!-- ===================================================================
+       RAYCAST / LINEAR STYLE COMMAND PALETTE MODAL (CMD + K)
+       =================================================================== -->
+  <div class="cmd-palette-backdrop" id="cmd-palette-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+    <div class="cmd-palette-window">
+      <div class="cmd-palette-search-row">
+        <svg class="cmd-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" class="cmd-palette-input" id="cmd-palette-input" placeholder="Type a command or search (e.g. 'Resume', 'Simulator', 'LeetCode')..." autocomplete="off" spellcheck="false">
+        <kbd class="cmd-esc-hint">ESC</kbd>
+      </div>
+
+      <div class="cmd-palette-results" id="cmd-palette-results">
+        <!-- Results injected dynamically via JS -->
+      </div>
+
+      <div class="cmd-palette-footer">
+        <div class="cmd-footer-hints">
+          <span><kbd>&uarr;</kbd> <kbd>&darr;</kbd> Navigate</span>
+          <span><kbd>&crarr;</kbd> Select</span>
+          <span><kbd>ESC</kbd> Close</span>
+        </div>
+        <div class="cmd-footer-brand">Divyansh.dev &middot; Command Center</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== FULLSCREEN RESUME MODAL VIEWER ===== -->
+  <div class="resume-modal-overlay" id="resume-modal" role="dialog" aria-modal="true" aria-label="Resume PDF Fullscreen Viewer">
+    <div class="resume-modal-content">
+      <div class="resume-modal-header">
+        <div class="modal-title-meta">
+          <span class="modal-doc-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </span>
+          <div>
+            <h4>Divyansh_Mishra_Resume.pdf</h4>
+            <span class="modal-subtext">Official Verified Resume &middot; Python Backend &amp; AI Engineer</span>
+          </div>
+        </div>
+        <div class="resume-modal-actions">
+          <a href="./Divyansh_Mishra_Resume.pdf" download="Divyansh_Mishra_Resume.pdf" class="btn btn-primary btn-sm js-download-resume" id="modal-download-resume-btn" title="Download Resume PDF">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            <span>Download</span>
+          </a>
+          <a href="./Divyansh_Mishra_Resume.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm" title="Open in new browser tab">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            <span>New Tab</span>
+          </a>
+          <button class="modal-close-btn" id="close-modal-btn" aria-label="Close Resume Viewer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="resume-modal-body">
+        <iframe src="./Divyansh_Mishra_Resume.pdf#toolbar=1&navpanes=0&view=FitH" class="modal-pdf-frame" title="Divyansh Mishra Fullscreen Resume"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- Global Toast Notification -->
   <div class="toast" id="toast"></div>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-left">
-        <p>&#169; <span id="current-year">2026</span> Divyansh Mishra &middot; Python Backend &amp; AI/LLM Engineer &middot; Noida, India</p>
+        <p>&#169; <span id="current-year">2026</span> Divyansh Mishra &nbsp;&middot;&nbsp; Python Backend &amp; AI/LLM Systems Engineer &nbsp;&middot;&nbsp; Hexaview Technologies</p>
       </div>
       <div class="footer-right">
         <a href="#hero">Back to Top &#8593;</a>
@@ -742,6 +1347,7 @@ app = FastAPI(title=<span class="str">"Financial AI Backend"</span>, version=<sp
     </div>
   </footer>
 
+  <!-- Main JavaScript Engine -->
   <script src="main.js"></script>
 </body>
 </html>

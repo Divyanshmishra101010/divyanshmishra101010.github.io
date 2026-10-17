@@ -1,240 +1,661 @@
 /**
- * DIVYANSH MISHRA | PORTFOLIO CORE ENGINE
- * Real resume data integrated — Hexaview Technologies, RAG, FastAPI
+ * DIVYANSH MISHRA | DISTRIBUTED SYSTEMS & AI OBSERVATORY ENGINE
+ * Python Backend & AI/LLM Systems Engineer
+ * Hexaview Technologies · FastAPI · Agentic RAG · SMA Rebalancer
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initNeuralCanvas();
-  initHeroTerminal();
+  initModeSwitcher();
+  initObservatorySimulators();
+  initCommandPalette();
   initProjectFilters();
   initCodeShowcase();
+  initResumeViewerAndModal();
   initContactAndToasts();
   initNavbarScroll();
   initCurrentYear();
-  initExperienceStyles();
 });
 
 /* ===================================================================
-   1. NEURAL NETWORK CANVAS
+   2. DUAL-MODE SWITCHER (Executive View vs Architect View)
    =================================================================== */
-function initNeuralCanvas() {
-  const canvas = document.getElementById('neural-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+function initModeSwitcher() {
+  const execBtn = document.getElementById('mode-executive-btn');
+  const archBtn = document.getElementById('mode-architect-btn');
+  const bentoSection = document.getElementById('bento-summary');
+  const observatorySection = document.getElementById('observatory');
 
-  let width, height;
-  let particles = [];
-  const particleCount = window.innerWidth < 768 ? 35 : 75;
-  const connectionDistance = 140;
-  let mouse = { x: null, y: null, maxDist: 180 };
+  function setMode(mode) {
+    document.documentElement.setAttribute('data-view-mode', mode);
 
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-
-  window.addEventListener('mousemove', (e) => { mouse.x = e.clientX; mouse.y = e.clientY; });
-  window.addEventListener('mouseleave', () => { mouse.x = null; mouse.y = null; });
-
-  class Particle {
-    constructor() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.vx = (Math.random() - 0.5) * 0.7;
-      this.vy = (Math.random() - 0.5) * 0.7;
-      this.radius = Math.random() * 2 + 1.2;
-      this.color = Math.random() > 0.4 ? 'rgba(0, 242, 254, ' : 'rgba(168, 85, 247, ';
+    if (execBtn && archBtn) {
+      execBtn.classList.toggle('active', mode === 'executive');
+      execBtn.setAttribute('aria-checked', mode === 'executive');
+      archBtn.classList.toggle('active', mode === 'architect');
+      archBtn.setAttribute('aria-checked', mode === 'architect');
     }
 
-    update() {
-      this.x += this.vx;
-      this.y += this.vy;
-      if (this.x < 0 || this.x > width) this.vx = -this.vx;
-      if (this.y < 0 || this.y > height) this.vy = -this.vy;
-    }
-
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-      ctx.fillStyle = this.color + '0.7)';
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = this.color.includes('242') ? '#00f2fe' : '#a855f7';
-      ctx.fill();
-      ctx.shadowBlur = 0;
-    }
-  }
-
-  for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-
-  function animate() {
-    ctx.clearRect(0, 0, width, height);
-    for (let i = 0; i < particles.length; i++) {
-      particles[i].update();
-      particles[i].draw();
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < connectionDistance) {
-          const alpha = (1 - dist / connectionDistance) * 0.25;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.strokeStyle = `rgba(0, 242, 254, ${alpha})`;
-          ctx.lineWidth = 0.8;
-          ctx.stroke();
-        }
+    if (mode === 'executive') {
+      showToast('Executive View: 30-sec recruiter skim with key metrics & resume');
+      if (bentoSection) {
+        bentoSection.scrollIntoView({ behavior: 'smooth' });
       }
-      if (mouse.x !== null && mouse.y !== null) {
-        const mdx = particles[i].x - mouse.x;
-        const mdy = particles[i].y - mouse.y;
-        const mdist = Math.sqrt(mdx * mdx + mdy * mdy);
-        if (mdist < mouse.maxDist) {
-          const mAlpha = (1 - mdist / mouse.maxDist) * 0.45;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(mouse.x, mouse.y);
-          ctx.strokeStyle = `rgba(168, 85, 247, ${mAlpha})`;
-          ctx.lineWidth = 1;
-          ctx.stroke();
-        }
+    } else {
+      showToast('Architect View: Live Distributed System Observatory & Simulators');
+      if (observatorySection) {
+        observatorySection.scrollIntoView({ behavior: 'smooth' });
       }
     }
-    requestAnimationFrame(animate);
   }
-  animate();
+
+  if (execBtn) {
+    execBtn.addEventListener('click', () => setMode('executive'));
+  }
+  if (archBtn) {
+    archBtn.addEventListener('click', () => setMode('architect'));
+  }
+
+  window.setPortfolioMode = setMode;
 }
 
 /* ===================================================================
-   2. INTERACTIVE HERO TERMINAL SIMULATOR
-   Real data from Divyansh's resume
+   3. OBSERVATORY: LIVE DISTRIBUTED SYSTEM & AI SIMULATORS
    =================================================================== */
-function initHeroTerminal() {
-  const terminalInput = document.getElementById('terminal-input');
-  const terminalHistory = document.getElementById('terminal-history');
-  const terminalBody = document.getElementById('hero-terminal-body');
-  const commandChips = document.querySelectorAll('.cmd-chip');
+function initObservatorySimulators() {
+  // Tab Switching
+  const tabRebalancer = document.getElementById('tab-rebalancer-btn');
+  const tabRag = document.getElementById('tab-rag-btn');
+  const panelRebalancer = document.getElementById('sim-rebalancer-panel');
+  const panelRag = document.getElementById('sim-rag-panel');
 
-  if (!terminalInput || !terminalHistory) return;
+  if (tabRebalancer && tabRag && panelRebalancer && panelRag) {
+    tabRebalancer.addEventListener('click', () => {
+      tabRebalancer.classList.add('active');
+      tabRag.classList.remove('active');
+      panelRebalancer.style.display = 'block';
+      panelRag.style.display = 'none';
+    });
 
-  const commandResponses = {
-    help: `
-<div class="terminal-output-line"><span class="t-cyan">Available Commands:</span></div>
-<div class="terminal-output-line">  <span class="t-yellow">whoami</span>        - Identity, current role & background</div>
-<div class="terminal-output-line">  <span class="t-yellow">experience</span>    - Professional experience at Hexaview Technologies</div>
-<div class="terminal-output-line">  <span class="t-yellow">stack</span>         - Full technical skill set and tools</div>
-<div class="terminal-output-line">  <span class="t-yellow">projects</span>      - Key projects built and deployed</div>
-<div class="terminal-output-line">  <span class="t-yellow">leetcode</span>      - Competitive programming stats</div>
-<div class="terminal-output-line">  <span class="t-yellow">education</span>     - Academic background</div>
-<div class="terminal-output-line">  <span class="t-yellow">contact</span>       - Email, GitHub, LinkedIn</div>
-<div class="terminal-output-line">  <span class="t-yellow">clear</span>         - Clear terminal output</div>
-`,
-    whoami: `
-<div class="terminal-output-line"><span class="t-cyan">[IDENTITY]</span>: Divyansh Mishra</div>
-<div class="terminal-output-line"><span class="t-purple">[ROLE]</span>: Python Backend Engineer / AI Engineer @ Hexaview Technologies, Noida</div>
-<div class="terminal-output-line"><span class="t-green">[SUMMARY]</span>: 2+ years building scalable backends and AI-powered applications.</div>
-<div class="terminal-output-line"><span class="t-comment">Core: Python, FastAPI, Flask, PostgreSQL, Redis, AWS, LangChain, LangGraph, OpenAI.</span></div>
-<div class="terminal-output-line"><span class="t-comment">Focus: High-performance REST APIs, RAG pipelines, multi-tenant architectures, Agentic AI.</span></div>
-`,
-    experience: `
-<div class="terminal-output-line"><span class="t-cyan">[HEXAVIEW TECHNOLOGIES]</span> Python Backend Engineer / AI Engineer (2024 - Present)</div>
-<div class="terminal-output-line"></div>
-<div class="terminal-output-line">  <span class="t-yellow">Project 1:</span> Financial Document Intelligence & Agentic AI Platform</div>
-<div class="terminal-output-line">    <span class="t-green">&#10003;</span> Agentic RAG chatbot with LangChain + OpenAI for brokerage PDF analysis</div>
-<div class="terminal-output-line">    <span class="t-green">&#10003;</span> 60% reduction in report-generation latency via Redis + async tasks</div>
-<div class="terminal-output-line"></div>
-<div class="terminal-output-line">  <span class="t-yellow">Project 2:</span> SMA Portfolio Rebalancing Platform</div>
-<div class="terminal-output-line">    <span class="t-green">&#10003;</span> Rebalancing time: 2+ hours -> 2 seconds (>99.9% reduction)</div>
-<div class="terminal-output-line">    <span class="t-green">&#10003;</span> 100% elimination of allocation errors in trade generation</div>
-<div class="terminal-output-line"></div>
-<div class="terminal-output-line">  <span class="t-yellow">Project 3:</span> Multi-Tenant SSO & Authentication Platform</div>
-<div class="terminal-output-line">    <span class="t-green">&#10003;</span> JWT (RSA) + RBAC serving 3 apps / 1000+ users</div>
-`,
-    stack: `
-<div class="terminal-output-line"><span class="t-cyan">[TECH STACK]</span></div>
-<div class="terminal-output-line">  <span class="t-purple">Languages</span>  : Python, SQL</div>
-<div class="terminal-output-line">  <span class="t-cyan">AI / LLM</span>   : LangChain, LangGraph, LangSmith, RAG, AI Agents, OpenAI, Gemini, Prompt Eng.</div>
-<div class="terminal-output-line">  <span class="t-green">Backend</span>    : FastAPI, Flask, REST APIs, Async Programming, Microservices, JWT, Background Tasks</div>
-<div class="terminal-output-line">  <span class="t-yellow">Databases</span>  : PostgreSQL, Redis, ChromaDB | SQLAlchemy, Alembic</div>
-<div class="terminal-output-line">  <span class="t-red">Cloud/Ops</span>  : AWS (Lambda, S3, EC2, RDS, CloudWatch, IAM, SQS, SNS), Docker, Git</div>
-`,
-    projects: `
-<div class="terminal-output-line"><span class="t-cyan">[PROJECTS]</span></div>
-<div class="terminal-output-line">  <span class="t-green">1.</span> Coursify-AI       — AI course generator (FastAPI + Gemini + OpenAI) | Live Demo</div>
-<div class="terminal-output-line">  <span class="t-green">2.</span> Agentic RAG Bot    — Financial chatbot with LangChain + ChromaDB + custom tools</div>
-<div class="terminal-output-line">  <span class="t-green">3.</span> Portfolio Rebalancer — Multi-tenant FastAPI + PostgreSQL + async trade engine</div>
-<div class="terminal-output-line">  <span class="t-green">4.</span> SSO Platform       — JWT (RSA) + RBAC + subdomain mapping for 1000+ users</div>
-<div class="terminal-output-line"><span class="t-comment">Scroll down to the Projects section for full details.</span></div>
-`,
-    leetcode: `
-<div class="terminal-output-line"><span class="t-cyan">[COMPETITIVE PROGRAMMING]</span></div>
-<div class="terminal-output-line">  Platform      : <span class="t-green">LeetCode</span></div>
-<div class="terminal-output-line">  Problems Solved: <span class="t-yellow">700+</span></div>
-<div class="terminal-output-line">  Contest Rating : <span class="t-yellow">1800+</span></div>
-<div class="terminal-output-line">  Focus Areas   : Dynamic Programming, Graphs, Trees, Sliding Window, Binary Search</div>
-`,
-    education: `
-<div class="terminal-output-line"><span class="t-cyan">[EDUCATION]</span></div>
-<div class="terminal-output-line">  Degree  : Bachelor of Technology in Computer Science</div>
-<div class="terminal-output-line">  College : <span class="t-green">Galgotias University</span></div>
-<div class="terminal-output-line">  Years   : 2020 - 2024</div>
-<div class="terminal-output-line">  CGPA    : <span class="t-yellow">8.7 / 10</span></div>
-`,
-    contact: `
-<div class="terminal-output-line"><span class="t-cyan">[CONTACT]</span></div>
-<div class="terminal-output-line">  Email   : <span class="t-green">divyanshmishra101010@gmail.com</span></div>
-<div class="terminal-output-line">  Phone   : <span class="t-green">+91-7992010347</span></div>
-<div class="terminal-output-line">  GitHub  : <span class="t-purple">github.com/Divyanshmishra101010</span></div>
-<div class="terminal-output-line">  LinkedIn: <span class="t-yellow">linkedin.com/in/divyansh-mishra</span></div>
-`
+    tabRag.addEventListener('click', () => {
+      tabRag.classList.add('active');
+      tabRebalancer.classList.remove('active');
+      panelRag.style.display = 'block';
+      panelRebalancer.style.display = 'none';
+    });
+  }
+
+  // --- SIMULATOR 1: SMA Portfolio Rebalancer Engine ---
+  const triggerSimBtn = document.getElementById('trigger-sim-btn');
+  const simBtnText = document.getElementById('sim-btn-text');
+  const simOutputLog = document.getElementById('sim-output-log');
+  const logStatusChip = document.getElementById('log-status-chip');
+  const simEngineTime = document.getElementById('sim-engine-time');
+
+  const nodeAccounts = document.getElementById('node-accounts');
+  const nodeModel = document.getElementById('node-model');
+  const nodeEngine = document.getElementById('node-engine');
+  const nodeOrders = document.getElementById('node-orders');
+
+  const statusAccounts = document.getElementById('status-accounts');
+  const statusModel = document.getElementById('status-model');
+  const statusEngine = document.getElementById('status-engine');
+  const statusOrders = document.getElementById('status-orders');
+
+  const pulse1 = document.getElementById('pulse-1');
+  const pulse2 = document.getElementById('pulse-2');
+  const pulse3 = document.getElementById('pulse-3');
+
+  let isSimRunning = false;
+
+  if (triggerSimBtn) {
+    triggerSimBtn.addEventListener('click', () => {
+      if (isSimRunning) return;
+      isSimRunning = true;
+
+      if (simBtnText) simBtnText.innerText = 'Triggering Rebalance...';
+      triggerSimBtn.classList.add('disabled');
+      if (logStatusChip) {
+        logStatusChip.innerText = 'RUNNING AUTOMATED FLOW';
+        logStatusChip.style.background = 'rgba(245, 158, 11, 0.2)';
+        logStatusChip.style.color = '#f59e0b';
+      }
+
+      // Step 1: Ingest Accounts
+      if (nodeAccounts) nodeAccounts.classList.add('active-pulse');
+      if (statusAccounts) statusAccounts.innerText = 'Ingesting 1,240 Accounts...';
+      if (pulse1) pulse1.classList.add('running');
+
+      const startTime = Date.now();
+      let logBuffer = `[${new Date().toISOString()}] [BASELINE] Previous manual process took ~2+ hours per client batch with spreadsheets\n`;
+      logBuffer += `[${new Date().toISOString()}] [AUTOMATED_FLOW] FastAPI multi-tenant async engine dispatched\n`;
+      logBuffer += `[${new Date().toISOString()}] [ACCOUNTS] Locked 1,240 client account states across tenant partitions\n`;
+      if (simOutputLog) simOutputLog.innerHTML = `<code>${escapeHtml(logBuffer)}</code>`;
+
+      setTimeout(() => {
+        // Step 2: Compare against Target Models
+        if (nodeModel) nodeModel.classList.add('active-pulse');
+        if (statusModel) statusModel.innerText = 'Weights Verified';
+        if (pulse2) pulse2.classList.add('running');
+
+        logBuffer += `[${new Date().toISOString()}] [MODEL_MATRIX] Target portfolio weights verified & mapped\n`;
+        logBuffer += `[${new Date().toISOString()}] [DRIFT_CALC] Calculated delta drift deltas across equity/fixed asset classes\n`;
+        if (simOutputLog) simOutputLog.innerHTML = `<code>${escapeHtml(logBuffer)}</code>`;
+      }, 550);
+
+      setTimeout(() => {
+        // Step 3: Concurrency Engine Execution
+        if (nodeEngine) nodeEngine.classList.add('active-pulse');
+        if (statusEngine) statusEngine.innerText = 'Async Worker Running...';
+        if (pulse3) pulse3.classList.add('running');
+
+        logBuffer += `[${new Date().toISOString()}] [ASYNC_WORKER] Spawning parallel async tasks for batch reconciliations\n`;
+        logBuffer += `[${new Date().toISOString()}] [SQL_OPTIMIZE] PostgreSQL relational matrix calculation in 0.04s\n`;
+        if (simOutputLog) simOutputLog.innerHTML = `<code>${escapeHtml(logBuffer)}</code>`;
+      }, 1100);
+
+      setTimeout(() => {
+        // Step 4: Trade Orders Generated
+        if (nodeOrders) nodeOrders.classList.add('active-pulse');
+        if (statusOrders) statusOrders.innerText = '348 Trades Generated!';
+
+        const elapsedSeconds = ((Date.now() - startTime) / 1000).toFixed(2);
+        if (simEngineTime) {
+          simEngineTime.innerText = `< 2 Seconds (0${elapsedSeconds}s)`;
+        }
+
+        logBuffer += `[${new Date().toISOString()}] [PROPOSALS] Generated 348 atomic trade proposals:\n`;
+        logBuffer += `   -> BUY  AAPL  | 450 shares @ $234.10 | Delta: +2.1%\n`;
+        logBuffer += `   -> SELL MSFT  | 120 shares @ $420.50 | Delta: -1.4%\n`;
+        logBuffer += `   -> BUY  NVDA  | 380 shares @ $138.20 | Delta: +1.8%\n`;
+        logBuffer += `   -> SELL GOOGL | 190 shares @ $185.00 | Delta: -0.9%\n`;
+        logBuffer += `[${new Date().toISOString()}] [VERIFICATION] 100% allocation accuracy. 0% mismatch errors.\n`;
+        logBuffer += `[${new Date().toISOString()}] [IMPACT] Previous Manual Process (~2+ Hours) vs Automated Flow (${elapsedSeconds}s) -> >99.9% latency cut!\n`;
+
+        if (simOutputLog) {
+          simOutputLog.innerHTML = `<code>${escapeHtml(logBuffer)}</code>`;
+          simOutputLog.scrollTop = simOutputLog.scrollHeight;
+        }
+
+        if (logStatusChip) {
+          logStatusChip.innerText = 'AUTOMATED FLOW COMPLETE (0 ERRORS)';
+          logStatusChip.style.background = 'rgba(16, 185, 129, 0.2)';
+          logStatusChip.style.color = '#10b981';
+        }
+
+        if (simBtnText) simBtnText.innerText = 'Trigger Rebalance Again';
+        triggerSimBtn.classList.remove('disabled');
+        isSimRunning = false;
+        showToast('Automated Rebalance completed in under 2s vs 2+ hours manual (>99.9% faster)!');
+
+        setTimeout(() => {
+          [nodeAccounts, nodeModel, nodeEngine, nodeOrders].forEach((n) => n && n.classList.remove('active-pulse'));
+          [pulse1, pulse2, pulse3].forEach((p) => p && p.classList.remove('running'));
+        }, 3000);
+      }, 1950);
+    });
+  }
+
+  // --- SIMULATOR 2: Agentic RAG Flow Visualizer ---
+  const triggerRagSimBtn = document.getElementById('trigger-rag-sim-btn');
+  const ragCards = document.querySelectorAll('.rag-flow-card');
+  const rdbTitle = document.getElementById('rdb-title');
+  const rdbChip = document.getElementById('rdb-chip');
+  const rdbContent = document.getElementById('rdb-content');
+
+  const stepDetails = {
+    1: {
+      title: 'Step 01: Multimodal Statement Ingestion (Llama APIs)',
+      chip: 'VISION OCR',
+      content: `<strong>Llama API Multimodal Extractor:</strong> Heterogeneous financial statements (brokerage PDFs, scans, tables) are converted to structured JSON models. Optical parsing reaches 99.4% precision on dense tabular securities holdings.`
+    },
+    2: {
+      title: 'Step 02: Maximal Marginal Relevance Retrieval (ChromaDB)',
+      chip: 'MMR VECTOR',
+      content: `<strong>Vector Store Semantic Retrieval:</strong> Query vectors are matched against OpenAI text-embedding-3-large embeddings in ChromaDB using MMR (k=6, fetch_k=20). Maximizes contextual diversity while suppressing redundant financial statement disclaimers.`
+    },
+    3: {
+      title: 'Step 03: Live Financial Tool Execution (Yahoo Finance & FMP)',
+      chip: 'DYNAMIC TOOLS',
+      content: `<strong>Automated Tool Calling:</strong> LangChain tools fetch real-time market data (P/E, beta, 52-week ranges) via Yahoo Finance & FMP APIs. Redis cache reduces repetitive market inquiries by 60% with sub-10ms response times.`
+    },
+    4: {
+      title: 'Step 04: Token Streaming & Automated Synthesis',
+      chip: 'GPT-4O SSE',
+      content: `<strong>Server-Sent Events (SSE) Streaming:</strong> Responses are generated at 45+ tokens/second with inline verification citations pointing directly back to brokerage statement line items and live market metrics.`
+    }
   };
 
-  function executeCommand(cmdStr) {
-    const rawCmd = cmdStr.trim();
-    if (!rawCmd) return;
-    const lowerCmd = rawCmd.toLowerCase();
+  ragCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const step = card.getAttribute('data-step');
+      ragCards.forEach((c) => c.classList.remove('active-rag'));
+      card.classList.add('active-rag');
 
-    const userLine = document.createElement('div');
-    userLine.className = 'terminal-output-line';
-    userLine.innerHTML = `<span class="terminal-prompt">divyansh@hexaview:~$</span> <span class="t-cyan">${escapeHtml(rawCmd)}</span>`;
-    terminalHistory.appendChild(userLine);
+      const data = stepDetails[step];
+      if (data && rdbTitle && rdbChip && rdbContent) {
+        rdbTitle.innerText = data.title;
+        rdbChip.innerText = data.chip;
+        rdbContent.innerHTML = `<p>${data.content}</p>`;
+      }
+    });
+  });
 
-    if (lowerCmd === 'clear') {
-      terminalHistory.innerHTML = '';
-      terminalBody.scrollTop = 0;
+  if (triggerRagSimBtn) {
+    triggerRagSimBtn.addEventListener('click', () => {
+      let currentStep = 1;
+      showToast('Tracing live Agentic RAG query workflow...');
+
+      function highlightStep(step) {
+        ragCards.forEach((c) => c.classList.remove('active-rag'));
+        const activeCard = document.getElementById(`rag-step-${step}`);
+        if (activeCard) activeCard.classList.add('active-rag');
+
+        const data = stepDetails[step];
+        if (data && rdbTitle && rdbChip && rdbContent) {
+          rdbTitle.innerText = data.title;
+          rdbChip.innerText = `STREAMING STEP ${step}/4`;
+          rdbContent.innerHTML = `<p>${data.content}</p>`;
+        }
+      }
+
+      highlightStep(1);
+      const interval = setInterval(() => {
+        currentStep++;
+        if (currentStep <= 4) {
+          highlightStep(currentStep);
+        } else {
+          clearInterval(interval);
+          if (rdbChip) rdbChip.innerText = 'FLOW COMPLETED';
+          showToast('Agentic RAG pipeline trace successfully completed!');
+        }
+      }, 900);
+    });
+  }
+}
+
+/* ===================================================================
+   4. RAYCAST / LINEAR STYLE COMMAND PALETTE (CMD + K / CTRL + K)
+   =================================================================== */
+function initCommandPalette() {
+  const modal = document.getElementById('cmd-palette-modal');
+  const input = document.getElementById('cmd-palette-input');
+  const resultsContainer = document.getElementById('cmd-palette-results');
+  const triggerBtn = document.getElementById('cmd-palette-trigger');
+
+  if (!modal || !input || !resultsContainer) return;
+
+  const commands = [
+    {
+      title: 'Download Official Resume (PDF)',
+      icon: '📄',
+      category: 'Resume',
+      action: () => {
+        if (typeof window.triggerResumeDownload === 'function') {
+          window.triggerResumeDownload();
+        }
+      }
+    },
+    {
+      title: 'View In-Page Resume & Credentials',
+      icon: '👁️',
+      category: 'Resume',
+      action: () => {
+        const resumeSec = document.getElementById('resume');
+        if (resumeSec) resumeSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      title: 'Open Fullscreen Resume Modal',
+      icon: '🔍',
+      category: 'Resume',
+      action: () => {
+        const navResumeBtn = document.getElementById('nav-resume-btn');
+        if (navResumeBtn) navResumeBtn.click();
+      }
+    },
+    {
+      title: 'Run SMA Rebalancing Benchmark Simulator',
+      icon: '⚡',
+      category: 'Observatory',
+      action: () => {
+        const obsSec = document.getElementById('observatory');
+        if (obsSec) obsSec.scrollIntoView({ behavior: 'smooth' });
+        const triggerSimBtn = document.getElementById('trigger-sim-btn');
+        if (triggerSimBtn) triggerSimBtn.click();
+      }
+    },
+    {
+      title: 'Trace Agentic RAG Pipeline Flow',
+      icon: '🤖',
+      category: 'Observatory',
+      action: () => {
+        const tabRagBtn = document.getElementById('tab-rag-btn');
+        if (tabRagBtn) tabRagBtn.click();
+        const obsSec = document.getElementById('observatory');
+        if (obsSec) obsSec.scrollIntoView({ behavior: 'smooth' });
+        const triggerRagSimBtn = document.getElementById('trigger-rag-sim-btn');
+        if (triggerRagSimBtn) triggerRagSimBtn.click();
+      }
+    },
+    {
+      title: 'Switch to Executive View (Recruiter Skim)',
+      icon: '👔',
+      category: 'View Mode',
+      action: () => {
+        if (typeof window.setPortfolioMode === 'function') {
+          window.setPortfolioMode('executive');
+        }
+      }
+    },
+    {
+      title: 'Switch to Architect View (Deep Technical)',
+      icon: '🛠️',
+      category: 'View Mode',
+      action: () => {
+        if (typeof window.setPortfolioMode === 'function') {
+          window.setPortfolioMode('architect');
+        }
+      }
+    },
+    {
+      title: 'Explore Featured Projects (Coursify-AI, SSO)',
+      icon: '🚀',
+      category: 'Projects',
+      action: () => {
+        const projSec = document.getElementById('projects');
+        if (projSec) projSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      title: 'View Hexaview Technologies Production Systems',
+      icon: '🏢',
+      category: 'Experience',
+      action: () => {
+        const expSec = document.getElementById('experience');
+        if (expSec) expSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    },
+    {
+      title: 'Open LeetCode Profile (700+ Solved, 1800+ Rating)',
+      icon: '⚡',
+      category: 'Algorithms',
+      action: () => {
+        window.open('https://leetcode.com/u/Divyansh_Mishra10/', '_blank');
+      }
+    },
+    {
+      title: 'Open Coursify-AI Live Demo (AI Course Generator)',
+      icon: '✨',
+      category: 'Projects',
+      action: () => {
+        window.open('https://coursify-by-ai.vercel.app/', '_blank');
+      }
+    },
+    {
+      title: 'Copy Direct Email (divyanshmishra101010@gmail.com)',
+      icon: '✉️',
+      category: 'Contact',
+      action: () => {
+        navigator.clipboard.writeText('divyanshmishra101010@gmail.com').then(() => {
+          showToast('Email address copied to clipboard!');
+        });
+      }
+    },
+    {
+      title: 'Open GitHub Profile (Divyanshmishra101010)',
+      icon: '🐙',
+      category: 'Social',
+      action: () => {
+        window.open('https://github.com/Divyanshmishra101010', '_blank');
+      }
+    },
+    {
+      title: 'Open LinkedIn Profile (divyansh-mishra-101764207)',
+      icon: '💼',
+      category: 'Social',
+      action: () => {
+        window.open('https://www.linkedin.com/in/divyansh-mishra-101764207/', '_blank');
+      }
+    }
+  ];
+
+  let selectedIndex = 0;
+  let filteredCommands = [...commands];
+
+  function renderCommands() {
+    resultsContainer.innerHTML = '';
+    if (filteredCommands.length === 0) {
+      resultsContainer.innerHTML = `<div style="padding: 1.5rem; text-align: center; color: var(--text-muted); font-size: 0.88rem;">No commands found matching "${escapeHtml(input.value)}"</div>`;
       return;
     }
 
-    let responseHtml = commandResponses[lowerCmd];
-    if (!responseHtml) {
-      responseHtml = `<div class="terminal-output-line"><span class="t-red">zsh: command not found: ${escapeHtml(rawCmd)}</span>. Type <span class="t-yellow">'help'</span> for available commands.</div>`;
-    }
-
-    const respContainer = document.createElement('div');
-    respContainer.innerHTML = responseHtml;
-    terminalHistory.appendChild(respContainer);
-    terminalBody.scrollTop = terminalBody.scrollHeight;
+    filteredCommands.forEach((cmd, idx) => {
+      const item = document.createElement('div');
+      item.className = `cmd-result-item ${idx === selectedIndex ? 'selected' : ''}`;
+      item.innerHTML = `
+        <span class="cmd-item-icon">${cmd.icon}</span>
+        <span class="cmd-item-title">${escapeHtml(cmd.title)}</span>
+        <span class="cmd-item-cat">${escapeHtml(cmd.category)}</span>
+      `;
+      item.addEventListener('click', () => {
+        closeCommandPalette();
+        cmd.action();
+      });
+      resultsContainer.appendChild(item);
+    });
   }
 
-  terminalInput.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') {
-      const val = terminalInput.value;
-      terminalInput.value = '';
-      executeCommand(val);
+  function openCommandPalette() {
+    modal.classList.add('active');
+    input.value = '';
+    filteredCommands = [...commands];
+    selectedIndex = 0;
+    renderCommands();
+    setTimeout(() => input.focus(), 50);
+  }
+
+  function closeCommandPalette() {
+    modal.classList.remove('active');
+    input.blur();
+  }
+
+  if (triggerBtn) {
+    triggerBtn.addEventListener('click', openCommandPalette);
+  }
+
+  // Keyboard shortcut: Cmd + K or Ctrl + K
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      if (modal.classList.contains('active')) {
+        closeCommandPalette();
+      } else {
+        openCommandPalette();
+      }
+    }
+
+    if (e.key === 'Escape' && modal.classList.contains('active')) {
+      closeCommandPalette();
     }
   });
 
-  commandChips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      const cmd = chip.getAttribute('data-cmd');
-      executeCommand(cmd);
-      terminalInput.focus();
-    });
+  input.addEventListener('input', () => {
+    const query = input.value.trim().toLowerCase();
+    filteredCommands = commands.filter(
+      (c) => c.title.toLowerCase().includes(query) || c.category.toLowerCase().includes(query)
+    );
+    selectedIndex = 0;
+    renderCommands();
+  });
+
+  input.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      selectedIndex = (selectedIndex + 1) % filteredCommands.length;
+      renderCommands();
+      scrollToSelected();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      selectedIndex = (selectedIndex - 1 + filteredCommands.length) % filteredCommands.length;
+      renderCommands();
+      scrollToSelected();
+    } else if (e.key === 'Enter') {
+      e.preventDefault();
+      if (filteredCommands[selectedIndex]) {
+        closeCommandPalette();
+        filteredCommands[selectedIndex].action();
+      }
+    }
+  });
+
+  function scrollToSelected() {
+    const selectedItem = resultsContainer.querySelector('.cmd-result-item.selected');
+    if (selectedItem) {
+      selectedItem.scrollIntoView({ block: 'nearest' });
+    }
+  }
+
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeCommandPalette();
+    }
   });
 }
+
+/* ===================================================================
+   5. IN-PAGE RESUME PDF VIEWER & FORCE-DOWNLOAD ENGINE
+   =================================================================== */
+function initResumeViewerAndModal() {
+  const resumeSection = document.getElementById('resume');
+  const navResumeBtn = document.getElementById('nav-resume-btn');
+  const heroViewResumeBtn = document.getElementById('hero-view-resume-btn');
+  const profileResumeBtn = document.getElementById('profile-resume-btn');
+  const fullscreenBtn = document.getElementById('fullscreen-resume-btn');
+  const modal = document.getElementById('resume-modal');
+  const closeModalBtn = document.getElementById('close-modal-btn');
+
+  function openResumeModal() {
+    if (modal) {
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  function closeResumeModal() {
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+  }
+
+  function scrollToResumeSection() {
+    if (resumeSection) {
+      resumeSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+  // Universal Webpage-Based PDF Download Function
+  function triggerResumeDownload() {
+    const fileName = 'Divyansh_Mishra_Resume.pdf';
+    const relativePdfPath = './' + fileName;
+
+    showToast('Starting download: ' + fileName + '...');
+
+    // Fetch PDF as Blob to force native file save dialog
+    fetch(relativePdfPath, { cache: 'no-cache' })
+      .then((res) => {
+        if (!res.ok) throw new Error('HTTP error ' + res.status);
+        return res.blob();
+      })
+      .then((blob) => {
+        const blobUrl = window.URL.createObjectURL(blob);
+        const tempLink = document.createElement('a');
+        tempLink.style.display = 'none';
+        tempLink.href = blobUrl;
+        tempLink.download = fileName;
+        document.body.appendChild(tempLink);
+        tempLink.click();
+        document.body.removeChild(tempLink);
+
+        setTimeout(() => {
+          window.URL.revokeObjectURL(blobUrl);
+        }, 2000);
+
+        showToast('Resume downloaded successfully!');
+      })
+      .catch((err) => {
+        // Fallback for file:// local sandbox or restricted origins
+        console.warn('Blob download fallback:', err);
+        const fallbackLink = document.createElement('a');
+        fallbackLink.href = relativePdfPath;
+        fallbackLink.download = fileName;
+        fallbackLink.target = '_blank';
+        document.body.appendChild(fallbackLink);
+        fallbackLink.click();
+        document.body.removeChild(fallbackLink);
+        showToast('Resume download triggered!');
+      });
+  }
+
+  window.triggerResumeDownload = triggerResumeDownload;
+
+  // Bind to all elements with class .js-download-resume
+  const downloadBtns = document.querySelectorAll('.js-download-resume');
+  downloadBtns.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      triggerResumeDownload();
+    });
+  });
+
+  if (heroViewResumeBtn) {
+    heroViewResumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToResumeSection();
+    });
+  }
+
+  if (profileResumeBtn) {
+    profileResumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      scrollToResumeSection();
+    });
+  }
+
+  if (navResumeBtn) {
+    navResumeBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openResumeModal();
+    });
+  }
+
+  if (fullscreenBtn) {
+    fullscreenBtn.addEventListener('click', () => {
+      openResumeModal();
+    });
+  }
+
+  if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+      closeResumeModal();
+    });
+  }
+
+  if (modal) {
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeResumeModal();
+      }
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal && modal.classList.contains('active')) {
+      closeResumeModal();
+    }
+  });
+}
+
 
 function escapeHtml(text) {
   const map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;' };
@@ -242,7 +663,7 @@ function escapeHtml(text) {
 }
 
 /* ===================================================================
-   3. PROJECT FILTER SYSTEM
+   7. PROJECT FILTERS
    =================================================================== */
 function initProjectFilters() {
   const filterBtns = document.querySelectorAll('.filter-btn');
@@ -253,15 +674,21 @@ function initProjectFilters() {
       filterBtns.forEach((b) => b.classList.remove('active'));
       btn.classList.add('active');
       const filterValue = btn.getAttribute('data-filter');
+
       projectCards.forEach((card) => {
         const category = card.getAttribute('data-category');
         if (filterValue === 'all' || category === filterValue) {
           card.style.display = 'flex';
-          setTimeout(() => { card.style.opacity = '1'; card.style.transform = 'translateY(0)'; }, 20);
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 20);
         } else {
           card.style.opacity = '0';
-          card.style.transform = 'translateY(15px)';
-          setTimeout(() => { card.style.display = 'none'; }, 250);
+          card.style.transform = 'translateY(8px)';
+          setTimeout(() => {
+            card.style.display = 'none';
+          }, 180);
         }
       });
     });
@@ -269,9 +696,23 @@ function initProjectFilters() {
 }
 
 /* ===================================================================
-   4. CODE TAB SWITCHER & CLIPBOARD
+   8. CODE BLUEPRINT DRAWER & CLIPBOARD
    =================================================================== */
 function initCodeShowcase() {
+  const toggleBtn = document.getElementById('toggle-blueprint-btn');
+  const toggleText = document.getElementById('blueprint-toggle-text');
+  const blueprintBox = document.getElementById('blueprint-box');
+
+  if (toggleBtn && blueprintBox) {
+    toggleBtn.addEventListener('click', () => {
+      const isHidden = blueprintBox.style.display === 'none' || !blueprintBox.style.display;
+      blueprintBox.style.display = isHidden ? 'block' : 'none';
+      if (toggleText) {
+        toggleText.innerText = isHidden ? 'Hide Code Blueprint' : 'Show Code Blueprint';
+      }
+    });
+  }
+
   const tabs = document.querySelectorAll('.code-tab');
   const blocks = {
     'rag-py': document.getElementById('code-rag-py'),
@@ -286,8 +727,11 @@ function initCodeShowcase() {
       tabs.forEach((t) => t.classList.remove('active'));
       tab.classList.add('active');
       const targetKey = tab.getAttribute('data-tab');
+
       Object.keys(blocks).forEach((key) => {
-        if (blocks[key]) blocks[key].classList.toggle('active', key === targetKey);
+        if (blocks[key]) {
+          blocks[key].classList.toggle('active', key === targetKey);
+        }
       });
     });
   });
@@ -297,9 +741,11 @@ function initCodeShowcase() {
       const activeBlock = document.querySelector('.code-block.active code');
       if (activeBlock) {
         navigator.clipboard.writeText(activeBlock.innerText).then(() => {
-          copyText.innerText = 'Copied!';
-          showToast('Code snippet copied to clipboard');
-          setTimeout(() => { copyText.innerText = 'Copy Code'; }, 2200);
+          if (copyText) copyText.innerText = 'Copied!';
+          showToast('Python blueprint copied to clipboard');
+          setTimeout(() => {
+            if (copyText) copyText.innerText = 'Copy Code';
+          }, 2200);
         });
       }
     });
@@ -307,7 +753,7 @@ function initCodeShowcase() {
 }
 
 /* ===================================================================
-   5. CONTACT & TOASTS
+   9. CONTACT SYSTEM & GLOBAL TOASTS
    =================================================================== */
 function initContactAndToasts() {
   const copyEmailBtn = document.getElementById('copy-email-btn');
@@ -317,8 +763,10 @@ function initContactAndToasts() {
     copyEmailBtn.addEventListener('click', () => {
       navigator.clipboard.writeText(emailText.innerText.trim()).then(() => {
         copyEmailBtn.innerHTML = '<span>Copied!</span>';
-        showToast('Email copied to clipboard!');
-        setTimeout(() => { copyEmailBtn.innerHTML = '<span>Copy</span>'; }, 2200);
+        showToast('Email address copied to clipboard: divyanshmishra101010@gmail.com');
+        setTimeout(() => {
+          copyEmailBtn.innerHTML = '<span>Copy</span>';
+        }, 2200);
       });
     });
   }
@@ -328,9 +776,15 @@ function initContactAndToasts() {
     const email = document.getElementById('form-email');
     const subject = document.getElementById('form-subject');
     const msg = document.getElementById('form-message');
-    if (!name.value || !email.value) { showToast('Please fill in your name and email'); return; }
-    showToast(`Thanks ${name.value}! Message sent. I'll reply to ${email.value} soon.`);
-    name.value = ''; email.value = '';
+
+    if (!name || !email || !name.value || !email.value) {
+      showToast('Please provide your name and email address');
+      return;
+    }
+
+    showToast(`Thank you, ${name.value}! Your message has been received.`);
+    name.value = '';
+    email.value = '';
     if (subject) subject.value = '';
     if (msg) msg.value = '';
   };
@@ -341,11 +795,13 @@ function showToast(message) {
   if (!toast) return;
   toast.innerText = message;
   toast.classList.add('show');
-  setTimeout(() => { toast.classList.remove('show'); }, 3200);
+  setTimeout(() => {
+    toast.classList.remove('show');
+  }, 3200);
 }
 
 /* ===================================================================
-   6. NAVBAR SCROLL & MOBILE MENU
+   10. NAVBAR SCROLL & MOBILE DRAWER
    =================================================================== */
 function initNavbarScroll() {
   const navbar = document.getElementById('navbar');
@@ -353,55 +809,30 @@ function initNavbarScroll() {
   const navLinks = document.getElementById('nav-links');
 
   window.addEventListener('scroll', () => {
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    if (navbar) {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }
   });
 
   if (toggle && navLinks) {
-    toggle.addEventListener('click', () => navLinks.classList.toggle('active'));
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+    });
+
     navLinks.querySelectorAll('a').forEach((link) => {
-      link.addEventListener('click', () => navLinks.classList.remove('active'));
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+      });
     });
   }
 }
 
 /* ===================================================================
-   7. DYNAMIC YEAR
+   11. DYNAMIC YEAR
    =================================================================== */
 function initCurrentYear() {
   const yearElem = document.getElementById('current-year');
-  if (yearElem) yearElem.innerText = new Date().getFullYear();
-}
-
-/* ===================================================================
-   8. EXPERIENCE SECTION DYNAMIC STYLES (injected inline for robustness)
-   =================================================================== */
-function initExperienceStyles() {
-  const style = document.createElement('style');
-  style.textContent = `
-    .experience-timeline { display: flex; flex-direction: column; gap: 2rem; }
-    .exp-card { background: var(--bg-card); backdrop-filter: blur(16px); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 2rem 2rem 1.5rem; transition: all var(--transition-smooth); }
-    .exp-card:hover { border-color: var(--border-accent); box-shadow: 0 15px 40px rgba(0,242,254,0.07); }
-    .exp-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; flex-wrap: wrap; gap: 1rem; }
-    .exp-company-info { display: flex; align-items: center; gap: 1.2rem; }
-    .exp-company-logo { width: 52px; height: 52px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #040914; flex-shrink: 0; }
-    .exp-role { font-size: 1.25rem; font-weight: 700; color: #fff; }
-    .exp-company { font-size: 0.9rem; color: var(--text-secondary); margin-top: 0.2rem; }
-    .exp-duration { display: flex; flex-direction: column; align-items: flex-end; gap: 0.35rem; }
-    .exp-badge { background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: #4ade80; font-size: 0.72rem; font-family: var(--font-mono); padding: 0.2rem 0.6rem; border-radius: 12px; }
-    .exp-dates { font-size: 0.85rem; color: var(--text-muted); font-family: var(--font-mono); }
-    .exp-projects-list { display: flex; flex-direction: column; gap: 1.8rem; }
-    .exp-project { border-left: 2px solid rgba(0,242,254,0.2); padding-left: 1.4rem; position: relative; }
-    .ep-title-row { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
-    .ep-dot { width: 10px; height: 10px; background: var(--accent-cyan); border-radius: 50%; box-shadow: 0 0 8px var(--accent-cyan); position: absolute; left: -6px; flex-shrink: 0; }
-    .ep-title-row h4 { font-size: 1.05rem; font-weight: 700; color: #e2e8f0; }
-    .ep-points { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin-bottom: 1rem; }
-    .ep-points li { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; padding-left: 1rem; position: relative; }
-    .ep-points li::before { content: '▸'; position: absolute; left: 0; color: var(--accent-cyan); }
-    .ep-points strong { color: #e2e8f0; }
-    .ep-tech-pills { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-    .ep-tech-pills span { font-family: var(--font-mono); font-size: 0.7rem; background: rgba(0,242,254,0.07); border: 1px solid rgba(0,242,254,0.2); color: var(--accent-cyan); padding: 0.2rem 0.55rem; border-radius: 4px; }
-    .featured-card { border-color: rgba(0,242,254,0.2); }
-    @media (max-width: 768px) { .exp-header { flex-direction: column; align-items: flex-start; } .exp-duration { align-items: flex-start; } }
-  `;
-  document.head.appendChild(style);
+  if (yearElem) {
+    yearElem.innerText = new Date().getFullYear();
+  }
 }
