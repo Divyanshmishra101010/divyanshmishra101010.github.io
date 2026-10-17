@@ -42,45 +42,42 @@
         <span class="logo-live-dot" title="Observatory Engine Active"></span>
       </a>
 
-      <!-- Dual Mode Switcher (Executive vs Architect) -->
-      <div class="mode-switcher-wrap" id="mode-switcher" role="radiogroup" aria-label="Portfolio View Mode">
-        <button class="mode-tab active" data-mode="executive" id="mode-executive-btn" role="radio" aria-checked="true" title="Fast 30-sec recruiter view with metrics & resume">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 12H8"/></svg>
-          <span>Executive View</span>
-        </button>
-        <button class="mode-tab" data-mode="architect" id="mode-architect-btn" role="radio" aria-checked="false" title="Deep dive with live simulators & interactive system maps">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-          <span>Architect View</span>
-        </button>
-      </div>
-
-      <!-- Navigation Links -->
+      <!-- Navigation Links (Concise, single-word, no wrapping) -->
       <nav class="nav-links" id="nav-links">
         <a href="#experience" class="nav-item">Experience</a>
-        <a href="#observatory" class="nav-item nav-item-highlight">Live Simulators</a>
+        <a href="#observatory" class="nav-item nav-item-highlight">Simulators</a>
         <a href="#projects" class="nav-item">Projects</a>
-        <a href="#skills" class="nav-item">Tech Stack</a>
-        <a href="#resume" class="nav-item">Resume</a>
-        <a href="#education" class="nav-item">Education &amp; DSA</a>
+        <a href="#skills" class="nav-item">Skills</a>
+        <a href="#education" class="nav-item nav-item-mobile-only">Education</a>
+        <a href="#resume" class="nav-item nav-item-mobile-only">Resume</a>
         <a href="#contact" class="nav-item">Contact</a>
       </nav>
 
-      <!-- Nav Actions: Quick Cmd+K + Resume + Contact -->
+      <!-- Nav Actions: View Mode Switcher + ⌘K + In-Page Resume PDF -->
       <div class="nav-actions">
-        <!-- Quick Command Palette Trigger -->
+        <!-- Dual Mode Switcher (Executive vs Architect) -->
+        <div class="mode-switcher-wrap" id="mode-switcher" role="radiogroup" aria-label="Portfolio View Mode">
+          <button class="mode-tab active" data-mode="executive" id="mode-executive-btn" role="radio" aria-checked="true" title="Fast 30-sec recruiter view with metrics & resume">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7h-9M14 17H5M17 12H8"/></svg>
+            <span>Executive</span>
+          </button>
+          <button class="mode-tab" data-mode="architect" id="mode-architect-btn" role="radio" aria-checked="false" title="Deep dive with live simulators & interactive system maps">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            <span>Architect</span>
+          </button>
+        </div>
+
+        <!-- Quick Command Palette Trigger (⌘K) -->
         <button class="cmd-k-trigger" id="cmd-palette-trigger" title="Open Command Palette (Press ⌘K or Ctrl+K)">
           <span class="cmd-k-icon">⌘</span>
           <span class="cmd-k-label">K</span>
-          <span class="cmd-k-tooltip">Quick Actions</span>
         </button>
 
         <!-- In-Page PDF View / Modal Trigger -->
         <button class="nav-btn-resume" id="nav-resume-btn" title="View Official Resume (PDF)">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
           <span>Resume PDF</span>
         </button>
-
-        <a href="#contact" class="nav-btn-contact">Hire Me</a>
 
         <button class="mobile-toggle" id="mobile-toggle" aria-label="Toggle Navigation Menu">
           <span></span>
